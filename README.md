@@ -9,6 +9,10 @@ Ethereum Node Security Toolkit
 
 
 
+## Acknowledgement
+ - The great interactive shell: [python-nubia](https://github.com/facebookincubator/python-nubia)
+ - [Web3.py](https://github.com/ethereum/web3.py/)
+
 
 
 ## TODO:
