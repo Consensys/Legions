@@ -5,7 +5,7 @@
 
 from pygments.token import Token
 
-from legion_context import context
+from legion.context import context
 from nubia import statusbar
 
 

@@ -8,10 +8,10 @@ import socket
 import typing
 from termcolor import cprint
 from nubia import command, argument
-from legion_context import context
+from legion.context import context
 from web3 import Web3
 import requests
-from helper_functions import getChainName
+from legion.helper_functions import getChainName
 
 w3 = Web3()
 LEGION_VERSION = "0.0.1"
@@ -179,7 +179,7 @@ class Investigate:
 
 
     @command("admin")
-    def investigate_admin(self):
+    def investigate_admin(self): 
         """
         Investigate accounts (e.g. functionalities nder the admin_ namespace)
         """
@@ -246,19 +246,18 @@ class Query:
 
     def __init__(self) -> None:
     # self._shared = shared
-        os.environ["WEB3_PROVIDER_URI"] = INFURA_URL #TODO: Better default web3 instance? 
 
         if not (w3.isConnected()):
-            cprint("Web3 API Version: {}".format(w3.api), "red")
-            cprint("Cannot connect to: {} ".format(INFURA_URL), "red")
-            cprint("Did you run sethost?", "red")
-            return None
+            cprint("Web3 API Version: {}".format(w3.api), "white")
+            cprint("Not using a custom node. Run sethost to connect to your node", "red")
+            os.environ["WEB3_PROVIDER_URI"] = INFURA_URL #TODO: Better default web3 instance? 
+            cprint("Connecting to Infura: {} ".format(INFURA_URL), "green")
         
 
     """This is the super command help"""
 
     @command("balance")
-    def get_balance(self, address: str, block: int = None):
+    def get_balance(self, address: str, block: int = None)  -> int:
         """
         Get Balance of an account
         """
@@ -271,11 +270,12 @@ class Query:
             block = w3.eth.blockNumber
 
         address = Web3.toChecksumAddress(address)
-        cprint("Balance of {} is : {} wei ({} Eth)".format(address, w3.eth.getBalance(address, block_identifier=block), Web3.fromWei(w3.eth.getBalance(address, block_identifier=block), 'ether')), "green")
-
+        balance = w3.eth.getBalance(address, block_identifier=block)
+        cprint("Balance of {} is : {} wei ({} Eth)".format(address, balance, Web3.fromWei(balance, 'ether')), "green")
+        return balance
 
     @command("storage")
-    def get_storage(self, address: str, count: int = 10, block: int = None):
+    def get_storage(self, address: str, count: int = 10, block: int = None) : #TODO: proper return 
         """
         Get the first "count" number of an address. 
         count default = 10
@@ -305,7 +305,7 @@ class Query:
 
 
     @command("code")
-    def get_code(self, address: str, block: int = None):
+    def get_code(self, address: str, block: int = None):  #TODO: proper return 
         """
         Get code of the smart contract at address
         """
@@ -322,9 +322,9 @@ class Query:
 
 
     @command("block")
-    def get_block(self, block: int = None):
+    def get_block(self, block: int = None):  #TODO: proper return 
         """
-        Get block details
+        Get block details by block number
         """
 
         if (block is None):
@@ -334,9 +334,9 @@ class Query:
 
 
     @command("transaction")
-    def get_transaction(self, hash: str, block: int = None):
+    def get_transaction(self, hash: str, block: int = None):  #TODO: proper return 
         """
-        Get block details
+        Get transaction details by hash
         """
 
         if (hash is None):

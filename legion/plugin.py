@@ -4,8 +4,8 @@
 
 
 import argparse
-from legion_context import LegionContext
-from legion_statusbar import LegionStatusBar
+from legion.context import LegionContext
+from legion.statusbar import LegionStatusBar
 from nubia import PluginInterface, CompletionDataSource
 from nubia.internal.blackcmd import CommandBlacklist
 

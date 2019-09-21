@@ -4,16 +4,20 @@
 
 import sys
 from nubia import Nubia, Options
-from legion_plugin import LegionPlugin
-from commands import legion_commands
+from legion.plugin import LegionPlugin
+from legion import commands
+
+
+def main():
+    plugin = LegionPlugin()
+    shell = Nubia(
+        name="legion",
+        command_pkgs=commands,
+        plugin=plugin,
+        options=Options(persistent_history=True),
+    )
+    sys.exit(shell.run())
 
 
 if __name__ == "__main__":
-    plugin = LegionPlugin()
-    shell = Nubia(
-        name="Legion",
-        command_pkgs=legion_commands,
-        plugin=plugin,
-        options=Options(persistent_history=False),
-    )
-    sys.exit(shell.run())
+    main()
