@@ -24,6 +24,10 @@ pip install legions
 
 ## Usage
 
+```
+legions
+```
+
 | Command     | Description                                                                |
 | ------------- |------------- |
 | getnodeinfo | Prints information about the node (run setnode before this)                |
@@ -33,9 +37,7 @@ pip install legions
 | version     | Print Versions (If connected to a node it will print the host version too) |
 
 
-![demo](assets/demo.gif "Demo")
-
-
+![demo](https://github.com/shayanb/Legions/raw/master/assets/demo.gif "Demo")
 
 
 
