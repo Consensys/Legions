@@ -15,6 +15,7 @@ from helper_functions import getChainName
 
 w3 = Web3()
 LEGION_VERSION = "0.0.1"
+INFURA_URL = "https://mainnet.infura.io/v3/c3914c0859de473b9edcd6f723b4ea69"
 
 Protocols = ["http", "rpc", "ipc", "ws"]
 host = None
@@ -138,11 +139,7 @@ class Investigate:
             cprint("Did you run sethost?", "red")
             return None
 
-    @property
-    def shared(self) -> int:
-        return self._shared
-
-    """This is the super command help"""
+    """Investigate further in the node (e.g. check if accounts are unlocked, etc"""
 
     @command("accounts")
     def investigate_accounts(self):
@@ -172,9 +169,8 @@ class Investigate:
        #cprint("Web3 API Version: {}".format(w3.geth.personal.listAccounts()), "white")
             # cprint("importRawKey: {}".format(w3.parity.personal.importRawKey("0x98f55b035870ed23884334cafe62739128043414097e1c6a3a4872131dc393a9", "")), "white")
             cprint("Number of Accounts: {}".format(len(w3.eth.accounts)), "green")    
-            #cprint("newAccount: {}".format(w3.parity.personal.newAccount("Legion2019")), "white") #WORKS!!
-
-            #w3.geth.personal.newAccount(self, "Legion2019")
+            cprint("newAccount: {}".format(w3.parity.personal.newAccount("Legion2019")), "white") #WORKS!!
+            w3.geth.personal.newAccount(self, "Legion2019")
 
             cprint("Web3 API Version: {}".format(w3.api), "white")
             cprint("connected to: {}".format(w3.provider._active_provider.endpoint_uri), "white")
@@ -239,3 +235,115 @@ class Investigate:
         #         cprint("Wshh.info: {}".format(w3.parity.shh.info()), "white")
         #     except Exception as e:
         #         cprint("shh.info: {}".format(e), "red")
+
+
+
+
+
+@command
+class Query:
+    "Query Blockchain (Storage, balance, etc)"
+
+    def __init__(self) -> None:
+    # self._shared = shared
+        os.environ["WEB3_PROVIDER_URI"] = INFURA_URL #TODO: Better default web3 instance? 
+
+        if not (w3.isConnected()):
+            cprint("Web3 API Version: {}".format(w3.api), "red")
+            cprint("Cannot connect to: {} ".format(INFURA_URL), "red")
+            cprint("Did you run sethost?", "red")
+            return None
+        
+
+    """This is the super command help"""
+
+    @command("balance")
+    def get_balance(self, address: str, block: int = None):
+        """
+        Get Balance of an account
+        """
+
+        if (address is None):
+            cprint("Missing Argument 'address'?", "red")
+            return 0
+
+        if (block is None):
+            block = w3.eth.blockNumber
+
+        address = Web3.toChecksumAddress(address)
+        cprint("Balance of {} is : {} wei ({} Eth)".format(address, w3.eth.getBalance(address, block_identifier=block), Web3.fromWei(w3.eth.getBalance(address, block_identifier=block), 'ether')), "green")
+
+
+    @command("storage")
+    def get_storage(self, address: str, count: int = 10, block: int = None):
+        """
+        Get the first "count" number of an address. 
+        count default = 10
+        """
+
+        if (address is None):
+            cprint("Missing Argument 'address'?", "red")
+            return 0
+
+        if (block is None):
+            block = w3.eth.blockNumber
+
+        address = Web3.toChecksumAddress(address)
+        for i in range(0, count):
+            hex_text = None
+            # print(Web3.isAddress(Web3.toHex(w3.eth.getStorageAt(address, i))), Web3.toHex(w3.eth.getStorageAt(address, i))) #TODO: detect address
+
+            try: #TODO: make this smarter, detect the variable and show proper represantation of it .
+                hex_text = Web3.toText(w3.eth.getStorageAt(address, i, block_identifier=block))
+            except:
+                try:
+                    hex_text = Web3.toInt(w3.eth.getStorageAt(address, i, block_identifier=block))
+                except:
+                    hex_text = None
+            
+            cprint("Storage {} = {} ({})".format(i, Web3.toHex(w3.eth.getStorageAt(address, i, block_identifier=block)), hex_text), "green")
+
+
+    @command("code")
+    def get_code(self, address: str, block: int = None):
+        """
+        Get code of the smart contract at address
+        """
+
+        if (address is None):
+            cprint("Missing Argument 'address'?", "red")
+            return 0
+
+        if (block is None):
+            block = w3.eth.blockNumber
+
+        address = Web3.toChecksumAddress(address)
+        cprint("Code of {} = \n {}".format(address, Web3.toHex(w3.eth.getCode(address, block_identifier=block))), "yellow")
+
+
+    @command("block")
+    def get_block(self, block: int = None):
+        """
+        Get block details
+        """
+
+        if (block is None):
+            block = w3.eth.blockNumber
+
+        cprint("block {} details = \n {}".format(block, (w3.eth.getBlock(block_identifier=block))), "yellow") #TODO: make this print pretty json
+
+
+    @command("transaction")
+    def get_transaction(self, hash: str, block: int = None):
+        """
+        Get block details
+        """
+
+        if (hash is None):
+            cprint("Missing Argument 'hash'?", "red")
+            return 0
+
+        if (block is None):
+            block = w3.eth.blockNumber
+
+        cprint("transaction {} details = \n {}".format(hash, (w3.eth.getTransaction(hash))), "yellow") #TODO: make this print pretty json
