@@ -1,0 +1,663 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/sbeta/Documents/Github/Legions/legions
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 97
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 29
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 145
+    content: "\r\n 0 [\e[0;33m09-21 04:39:44\e[0m]\e[31m (master)\e[0m \e[0;35m~/Documents/Github/Legions/legions\e[0m \e[0m\r\n\U0001F37A  "
+  - delay: 1400
+    content: p
+  - delay: 280
+    content: 'y'
+  - delay: 104
+    content: t
+  - delay: 112
+    content: h
+  - delay: 120
+    content: o
+  - delay: 128
+    content: 'n'
+  - delay: 224
+    content: ' '
+  - delay: 880
+    content: m
+  - delay: 104
+    content: a
+  - delay: 96
+    content: i
+  - delay: 56
+    content: 'n'
+  - delay: 248
+    content: .
+  - delay: 128
+    content: 'py '
+  - delay: 439
+    content: "\r\n"
+  - delay: 800
+    content: "Logging to /var/folders/b3/7pmvdvzn4b3_jwp_77_sj_hw0000gn/T/legions-xpitupxn\r\n"
+  - delay: 36
+    content: "\e[?1l\e[6n"
+  - delay: 5
+    content: "\e[?2004h\e[?25l\e[0m\e[?7l\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0m \e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m                                                                                                \r\e[96C \r\e[7A\e[7C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 14
+    content: "\e[?25l\e[?7l\e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m \e[0m\e[K\e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m                                                                                                \r\e[96C \e[0m\r\r\n\e[0;38;5;231;48;5;234mLegions  Verbose   \e[0;38;5;231;48;5;19mOFF\e[0;38;5;231;48;5;234m                                                                          \r\e[96C \r\e[17A\e[7C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 990
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 706
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mh\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241melp\e[0m \e[4D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 197
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[8C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mlp\e[0m \e[3D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 86
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 652
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197ml\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[9C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mp\e[0m \e[2D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[10C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 200
+    content: "\e[?25l\e[?7l\e[3D\e[0;38;5;34mhelp\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 134
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 273
+    content: "\e[?25l\e[?7l\e[11D\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> help\e[0m                                                                                     \r\e[96C \r\e[0m\r\r\n\e[J\e[?7h\e[0m\e[?12l\e[?25h\e[?2004l+-------------+----------------------------------------------------------------------------+\r\n| Command     | Description                                                                |\r\n+-------------+----------------------------------------------------------------------------+\r\n| \e[35mgetnodeinfo\e[0m | Prints information about the node (run setnode before this)                |\r\n| \e[35minvestigate\e[0m | Investigate further in the node (e.g. check if accounts are unlocked, etc) |\r\n| \e[35mquery\e[0m       | Query Blockchain (Storage, balance, etc)                                   |\r\n| \e[35msethost\e[0m     | Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step |\r\n| \e[35mversion\e[0m     | Print Versions (If connected to a node it will print the host version too) |\r\n+-------------+----------------------------------------------------------------------------+\r\n\e[33mBuilt-in Commands\e[0m\r\n+----------+------------------------------------------------------------------+\r\n| Command  | Description                                                      |\r\n+----------+------------------------------------------------------------------+\r\n| \e[35m:verbose\e[0m | Prints or changes verbosity level, accepts integer or True/False |\r\n| \e[35m?\e[0m        | Prints help about all the commands                               |\r\n| \e[35mconnect\e[0m  | Start the interactive mode                                       |\r\n| \e[35mexit\e[0m     | Exits the program                                                |\r\n| \e[35mhelp\e[0m     | Prints help about all the commands                               |\r\n| \e[35mq\e[0m        | Exits the program                                                |\r\n| \e[35mquit\e[0m     | Exits the program                                                |\r\n+----------+------------------------------------------------------------------+\r\n\e[?1l\e[6n\e[?2004h\e[?25l\e[0m\e[?7l\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0m \e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m                                                                                                \r\e[96C \r\e[7A\e[7C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0;38;5;231;48;5;234mLegions  Verbose   \e[0;38;5;231;48;5;19mOFF\e[0;38;5;231;48;5;234m                                                                          \r\e[96C \r\e[8A\e[7C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 717
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 285
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1004
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 570
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197ms\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241methost host=\"mainnet.infura.io\"\e[0m \e[32D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m sethost \e[0;38;5;16;48;5;246m Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step \e[0;38;5;16;48;5;238m \e[A\e[86D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 208
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[8C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mthost host=\"mainnet.infura.io\"\e[0m \e[31D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m sethost \e[0;38;5;16;48;5;246m Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step \e[0;38;5;16;48;5;238m \e[A\e[86D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 170
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mt\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[9C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mhost host=\"mainnet.infura.io\"\e[0m \e[30D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[10C\e[0;38;5;16;48;5;250m sethost \e[0;38;5;16;48;5;246m Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step \e[0;38;5;16;48;5;238m \e[A\r\e[10C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 38
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1006
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 38
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mh\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241most host=\"mainnet.infura.io\"\e[0m \e[29D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m sethost \e[0;38;5;16;48;5;246m Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step \r\e[96C\e[0;38;5;16;48;5;238m \e[A\r\e[11C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 170
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mo\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[11C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mst host=\"mainnet.infura.io\"\e[0m \e[28D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m sethost \e[0;38;5;16;48;5;246m Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step \r\e[96C\e[0;38;5;16;48;5;238m \e[A\r\e[12C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 105
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197ms\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[12C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mt host=\"mainnet.infura.io\"\e[0m \e[27D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m sethost \e[0;38;5;16;48;5;246m Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step \r\e[96C\e[0;38;5;16;48;5;238m \e[A\r\e[13C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 125
+    content: "\e[?25l\e[?7l\e[6D\e[0;38;5;215msethost\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[13C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m host=\"mainnet.infura.io\"\e[0m \e[26D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m sethost \e[0;38;5;16;48;5;246m Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step \r\e[96C\e[0;38;5;16;48;5;238m \e[A\r\e[14C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[13C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 320
+    content: "\e[?25l\e[?7l\e[0;38;5;231m \e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mhost=\"mainnet.infura.io\"\e[0m \e[25D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[15C\e[0;38;5;16;48;5;250m host= \e[0;38;5;16;48;5;246m [str, required] Address of the RPC Node \e[0;38;5;16;48;5;238m \e[A\e[49D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 213
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 74
+    content: "\e[?25l\e[?7l\e[0;38;5;231mh\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[15C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241most=\"mainnet.infura.io\"\e[0m \e[24D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[16C\e[0;38;5;16;48;5;250m host= \e[0;38;5;16;48;5;246m [str, required] Address of the RPC Node \e[0;38;5;16;48;5;238m \e[A\e[49D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 153
+    content: "\e[?25l\e[?7l\e[0;38;5;231mo\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[16C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mst=\"mainnet.infura.io\"\e[0m \e[23D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[17C\e[0;38;5;16;48;5;250m host= \e[0;38;5;16;48;5;246m [str, required] Address of the RPC Node \e[0;38;5;16;48;5;238m \e[A\e[49D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 127
+    content: "\e[?25l\e[?7l\e[0;38;5;231ms\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[17C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241mt=\"mainnet.infura.io\"\e[0m \e[22D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[18C\e[0;38;5;16;48;5;250m host= \e[0;38;5;16;48;5;246m [str, required] Address of the RPC Node \e[0;38;5;16;48;5;238m \e[A\e[49D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 144
+    content: "\e[?25l\e[?7l\e[0;38;5;231mt\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[18C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m=\"mainnet.infura.io\"\e[0m \e[21D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[19C\e[0;38;5;16;48;5;250m host= \e[0;38;5;16;48;5;246m [str, required] Address of the RPC Node \e[0;38;5;16;48;5;238m \e[A\e[49D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 472
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 889
+    content: "\e[?25l\e[?7l\e[4D\e[0;38;5;231mhost\e[0;38;5;197m=\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[19C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241m\"mainnet.infura.io\"\e[0m \e[20D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 106
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 351
+    content: "\e[?25l\e[?7l\e[0;38;5;89;48;5;233m\"\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mmainnet.infura.io\"\e[0m \e[19D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 266
+    content: "\e[?25l\e[?7l\e[0;38;5;231mm\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mainnet.infura.io\"\e[0m \e[18D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 137
+    content: "\e[?25l\e[?7l\e[0;38;5;231ma\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241minnet.infura.io\"\e[0m \e[17D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 91
+    content: "\e[?25l\e[?7l\e[0;38;5;231mi\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mnnet.infura.io\"\e[0m \e[16D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 81
+    content: "\e[?25l\e[?7l\e[0;38;5;231mn\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mnet.infura.io\"\e[0m \e[15D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 49
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 152
+    content: "\e[?25l\e[?7l\e[0;38;5;231mn\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241met.infura.io\"\e[0m \e[14D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 113
+    content: "\e[?25l\e[?7l\e[0;38;5;231me\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241mt.infura.io\"\e[0m \e[13D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 121
+    content: "\e[?25l\e[?7l\e[0;38;5;231mt\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241m.infura.io\"\e[0m \e[12D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 145
+    content: "\e[?25l\e[?7l\e[0;38;5;231m.\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241minfura.io\"\e[0m \e[11D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 336
+    content: "\e[?25l\e[?7l\e[0;38;5;231mi\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mnfura.io\"\e[0m \e[10D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 56
+    content: "\e[?25l\e[?7l\e[0;38;5;231mn\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mfura.io\"\e[0m \e[9D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 39
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 114
+    content: "\e[?25l\e[?7l\e[0;38;5;231mf\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mura.io\"\e[0m \e[8D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 131
+    content: "\e[?25l\e[?7l\e[0;38;5;231mu\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mra.io\"\e[0m \e[7D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 114
+    content: "\e[?25l\e[?7l\e[0;38;5;231mr\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241ma.io\"\e[0m \e[6D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 65
+    content: "\e[?25l\e[?7l\e[0;38;5;231ma\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m.io\"\e[0m \e[5D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 135
+    content: "\e[?25l\e[?7l\e[0;38;5;231m.\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mio\"\e[0m \e[4D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 281
+    content: "\e[?25l\e[?7l\e[0;38;5;231mi\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241mo\"\e[0m \e[3D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 96
+    content: "\e[?25l\e[?7l\e[0;38;5;231mo\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m\"\e[0m \e[2D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 15
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 345
+    content: "\e[?25l\e[?7l\e[18D\e[0;38;5;186m\"mainnet.infura.io\"\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 524
+    content: "\e[?25l\e[?7l\e[39D\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0;38;5;215msethost\e[0;38;5;231m \e[0;38;5;231mhost\e[0;38;5;197m=\e[0;38;5;186m\"mainnet.infura.io\"\e[0m                                                         \r\e[96C \r\e[0m\r\r\n\e[J\e[?7h\e[0m\e[?12l\e[?25h\e[?2004l\e[33mInput: mainnet.infura.io\e[0m\r\n\e[33mVerbose? 0\e[0m\r\n"
+  - delay: 250
+    content: "\e[32mWeb3 API Version: 5.1.0\e[0m\r\n\e[32mconnected to: https://mainnet.infura.io\e[0m\r\n"
+  - delay: 45
+    content: "\e[32mVersion: Geth/v1.8.27-omnibus-c94f741c/linux-amd64/go1.11.1\e[0m\r\n\e[?1l\e[6n\e[?2004h\e[?25l\e[0m\e[?7l\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0m \e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m                                                                                                \r\e[96C \r\e[7A\e[7C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0;38;5;231;48;5;234mLegions  Verbose   \e[0;38;5;231;48;5;19mOFF\e[0;38;5;231;48;5;234m                                                                          \r\e[96C \r\e[8A\e[7C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 998
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 351
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mg\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241metnodeinfo\e[0m \e[11D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 81
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[8C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mtnodeinfo\e[0m \e[10D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 120
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mt\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[9C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mnodeinfo\e[0m \e[9D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[10C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 433
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 360
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mn\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241modeinfo\e[0m \e[8D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 152
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mo\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[11C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mdeinfo\e[0m \e[7D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[12C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 149
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197md\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[12C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241meinfo\e[0m \e[6D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 89
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[13C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241minfo\e[0m \e[5D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[14C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 170
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mi\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[14C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mnfo\e[0m \e[4D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[15C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 53
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 10
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mn\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[15C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mfo\e[0m \e[3D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[16C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 163
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mf\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[16C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mo\e[0m \e[2D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[17C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 147
+    content: "\e[?25l\e[?7l\e[10D\e[0;38;5;215mgetnodeinfo\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[17C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[18C\e[0;38;5;16;48;5;250m getnodeinfo \e[0;38;5;16;48;5;246m Prints information about the node (run setnode before this) \e[0;38;5;16;48;5;238m \e[A\e[75D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[17C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 660
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 275
+    content: "\e[?25l\e[?7l\e[18D\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0;38;5;215mgetnodeinfo\e[0m                                                                              \r\e[96C \r\e[0m\r\r\n\e[J\e[?7h\e[0m\e[?12l\e[?25h\e[?2004l"
+  - delay: 203
+    content: "\e[37mWeb3 API Version: 5.1.0\e[0m\r\n\e[37mconnected to: https://mainnet.infura.io\e[0m\r\n"
+  - delay: 48
+    content: "\e[32mVersion: Geth/v1.8.27-omnibus-c94f741c/linux-amd64/go1.11.1\e[0m\r\n----------------------------------------------------------------\e[0m\r\n"
+  - delay: 50
+    content: "\e[32mLast Block Number: 8591563\e[0m\r\n"
+  - delay: 115
+    content: "\e[32mChain: Ethereum Mainnet (ChainID: 1)\e[0m\r\n"
+  - delay: 49
+    content: "\e[32mProtocol Version: 63\e[0m\r\n"
+  - delay: 48
+    content: "\e[32mIs Listening: True\e[0m\r\n"
+  - delay: 75
+    content: "\e[32mPeer Count: 100\e[0m\r\n"
+  - delay: 48
+    content: "\e[32mIs Syncing: False\e[0m\r\n"
+  - delay: 46
+    content: "\e[32mIs Mining: False\e[0m\r\n"
+  - delay: 50
+    content: "\e[32mHash Rate: 0\e[0m\r\n"
+  - delay: 54
+    content: "\e[32mGas Price: 10000000000\e[0m\r\n----------------------------------------------------------------\e[0m\r\n"
+  - delay: 45
+    content: "\e[31mCoinbase not available: {'code': -32601, 'message': 'The method eth_coinbase does not exist/is not available'}\e[0m\r\n"
+  - delay: 54
+    content: "\e[32mAccounts: []\e[0m\r\n\e[?1l\e[6n\e[?2004h\e[?25l\e[0m\e[?7l\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0m \e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m                                                                                                \r\e[96C \r\e[7A\e[7C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0;38;5;231;48;5;234mLegions  Verbose   \e[0;38;5;231;48;5;19mOFF\e[0;38;5;231;48;5;234m                                                                          \r\e[96C \r\e[8A\e[7C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 996
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1006
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 859
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mh\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241melp\e[0m \e[4D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 81
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[8C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mlp\e[0m \e[3D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 51
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 87
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197ml\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[9C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mp\e[0m \e[2D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[10C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 89
+    content: "\e[?25l\e[?7l\e[3D\e[0;38;5;34mhelp\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 432
+    content: "\e[?25l\e[?7l\e[11D\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> help\e[0m                                                                                     \r\e[96C \r\e[0m\r\r\n\e[J\e[?7h\e[0m\e[?12l\e[?25h\e[?2004l+-------------+----------------------------------------------------------------------------+\r\n| Command     | Description                                                                |\r\n+-------------+----------------------------------------------------------------------------+\r\n| \e[35mgetnodeinfo\e[0m | Prints information about the node (run setnode before this)                |\r\n| \e[35minvestigate\e[0m | Investigate further in the node (e.g. check if accounts are unlocked, etc) |\r\n| \e[35mquery\e[0m       | Query Blockchain (Storage, balance, etc)                                   |\r\n| \e[35msethost\e[0m     | Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step |\r\n| \e[35mversion\e[0m     | Print Versions (If connected to a node it will print the host version too) |\r\n+-------------+----------------------------------------------------------------------------+\r\n\e[33mBuilt-in Commands\e[0m\r\n+----------+------------------------------------------------------------------+\r\n| Command  | Description                                                      |\r\n+----------+------------------------------------------------------------------+\r\n| \e[35m:verbose\e[0m | Prints or changes verbosity level, accepts integer or True/False |\r\n| \e[35m?\e[0m        | Prints help about all the commands                               |\r\n| \e[35mconnect\e[0m  | Start the interactive mode                                       |\r\n| \e[35mexit\e[0m     | Exits the program                                                |\r\n| \e[35mhelp\e[0m     | Prints help about all the commands                               |\r\n| \e[35mq\e[0m        | Exits the program                                                |\r\n| \e[35mquit\e[0m     | Exits the program                                                |\r\n+----------+------------------------------------------------------------------+\r\n\e[?1l\e[6n\e[?2004h\e[?25l\e[0m\e[?7l\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0m \e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m                                                                                                \r\e[96C \r\e[7A\e[7C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0;38;5;231;48;5;234mLegions  Verbose   \e[0;38;5;231;48;5;19mOFF\e[0;38;5;231;48;5;234m                                                                          \r\e[96C \r\e[8A\e[7C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 366
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 633
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1000
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 480
+    content: "\e[?25l\e[?7l\e[0;38;5;197mq\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241muery code address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[63D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m quit  \e[0;38;5;16;48;5;246m Exits the program                        \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m q     \e[0;38;5;16;48;5;246m Exits the program                        \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[3A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 135
+    content: "\e[?25l\e[?7l\b\e[0;38;5;16;48;5;197mqu\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[3A\e[8C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mery code address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[62D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m quit  \e[0;38;5;16;48;5;246m Exits the program                        \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[2A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 89
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[2A\e[9C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mry code address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[61D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[10C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 144
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mr\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241my code address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[60D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 125
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 39
+    content: "\e[?25l\e[?7l\e[4D\e[0;38;5;215mquery\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[11C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m code address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[59D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[12C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[A\e[50D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[11C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 711
+    content: "\e[?25l\e[?7l\e[0;38;5;231m \e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mcode address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[58D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 6
+    content: "\e[?25l\e[?7l\e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m balance     \e[0;38;5;16;48;5;246m Get Balance of an account                                      \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m block       \e[0;38;5;16;48;5;246m Get block details by block number                              \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m code        \e[0;38;5;16;48;5;246m Get code of the smart contract at address                      \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m storage     \e[0;38;5;16;48;5;246m Get the first \"count\" number of an address. \e[0;34;48;5;246m^J\e[0;38;5;16;48;5;246mcount default = 1\e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m transaction \e[0;38;5;16;48;5;246m Get transaction details by hash                                \e[0;38;5;16;48;5;238m \e[5A\e[78D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 241
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1003
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1007
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 517
+    content: "\e[?25l\e[?7l\e[0;38;5;231mb\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[5A\e[13C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241malance address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[60D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[14C\e[0;38;5;16;48;5;250m balance \e[0;38;5;16;48;5;246m Get Balance of an account         \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[14C\e[0;38;5;16;48;5;250m block   \e[0;38;5;16;48;5;246m Get block details by block number \e[0;38;5;16;48;5;238m \e[2A\e[45D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 167
+    content: "\e[?25l\e[?7l\e[0;38;5;231ma\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[2A\e[14C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mlance address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[59D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[15C\e[0;38;5;16;48;5;250m balance \e[0;38;5;16;48;5;246m Get Balance of an account \e[0;38;5;16;48;5;238m \e[A\e[37D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 65
+    content: "\e[?25l\e[?7l\e[0;38;5;231ml\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[15C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mance address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[58D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[16C\e[0;38;5;16;48;5;250m balance \e[0;38;5;16;48;5;246m Get Balance of an account \e[0;38;5;16;48;5;238m \e[A\e[37D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 121
+    content: "\e[?25l\e[?7l\e[0;38;5;231ma\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[16C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mnce address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[57D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[17C\e[0;38;5;16;48;5;250m balance \e[0;38;5;16;48;5;246m Get Balance of an account \e[0;38;5;16;48;5;238m \e[A\e[37D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 100
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 11
+    content: "\e[?25l\e[?7l\e[0;38;5;231mn\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[17C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mce address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[56D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[18C\e[0;38;5;16;48;5;250m balance \e[0;38;5;16;48;5;246m Get Balance of an account \e[0;38;5;16;48;5;238m \e[A\e[37D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 355
+    content: "\e[?25l\e[?7l\e[0;38;5;231mc\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[18C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241me address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[55D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[19C\e[0;38;5;16;48;5;250m balance \e[0;38;5;16;48;5;246m Get Balance of an account \e[0;38;5;16;48;5;238m \e[A\e[37D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 90
+    content: "\e[?25l\e[?7l\e[0;38;5;231me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[19C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[54D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[20C\e[0;38;5;16;48;5;250m balance \e[0;38;5;16;48;5;246m Get Balance of an account \e[0;38;5;16;48;5;238m \e[A\e[37D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[19C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 142
+    content: "\e[?25l\e[?7l\e[7D\e[0;38;5;221mbalance\e[0;38;5;231m \e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241maddress=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[53D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[21C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided>      \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[21C\e[0;38;5;16;48;5;250m block=   \e[0;38;5;16;48;5;246m [int, default: None] <no description provided> \e[0;38;5;16;48;5;238m \e[2A\e[59D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 223
+    content: "\e[?25l\e[?7l\e[0;38;5;231ma\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[2A\e[21C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mddress=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[52D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[22C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 127
+    content: "\e[?25l\e[?7l\e[0;38;5;231md\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[22C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mdress=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[51D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 20
+    content: "\e[?25l\e[?7l\e[0m\r\r\n\e[23C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 118
+    content: "\e[?25l\e[?7l\e[0;38;5;231md\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[23C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mress=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[50D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[24C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 177
+    content: "\e[?25l\e[?7l\e[0;38;5;231mr\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[24C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mess=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[49D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[25C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 70
+    content: "\e[?25l\e[?7l\e[0;38;5;231me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[25C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mss=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[48D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[26C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 227
+    content: "\e[?25l\e[?7l\e[0;38;5;231ms\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[26C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241ms=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[47D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[27C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 138
+    content: "\e[?25l\e[?7l\e[0;38;5;231ms\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[27C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[46D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[28C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 241
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 439
+    content: "\e[?25l\e[?7l\e[7D\e[0;38;5;231maddress\e[0;38;5;197m=\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[28C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[45D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 395
+    content: "\e[?25l\e[?7l\e[0;38;5;89;48;5;233m\"\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241m0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[44D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 158
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 175
+    content: "\e[?25l\e[?7l\e[0;38;5;141m0\e[0;38;5;231mx89d24a6b4ccb1b6faa2625fe562bdd9a23260359\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m\"\e[0m \e[2D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 573
+    content: "\e[?25l\e[?7l\e[43D\e[0;38;5;186m\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 242
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 625
+    content: "\e[?25l\e[?7l\e[73D\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0;38;5;215mquery\e[0;38;5;231m \e[0;38;5;221mbalance\e[0;38;5;231m \e[0;38;5;231maddress\e[0;38;5;197m=\e[0;38;5;186m\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m                       \r\e[96C \r\e[0m\r\r\n\e[J\e[?7h\e[0m\e[?12l\e[?25h\e[?2004l"
+  - delay: 188
+    content: "\e[32mBalance of 0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359 is : 0 wei (0 Eth)\e[0m\r\n\e[?1l\e[6n\e[?2004h\e[?25l\e[0m\e[?7l\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0m \e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m                                                                                                \r\e[96C \r\e[7A\e[7C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0;38;5;231;48;5;234mLegions  Verbose   \e[0;38;5;231;48;5;19mOFF\e[0;38;5;231;48;5;234m                                                                          \r\e[96C \r\e[8A\e[7C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 182
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 818
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 972
+    content: "\e[?25l\e[?7l\e[0;38;5;197mq\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241muery balance address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[66D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m quit  \e[0;38;5;16;48;5;246m Exits the program                        \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m q     \e[0;38;5;16;48;5;246m Exits the program                        \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[3A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 24
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 105
+    content: "\e[?25l\e[?7l\b\e[0;38;5;16;48;5;197mqu\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[3A\e[8C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mery balance address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[65D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m quit  \e[0;38;5;16;48;5;246m Exits the program                        \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[2A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 105
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[2A\e[9C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mry balance address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[64D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[10C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 249
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mr\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241my balance address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[63D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 170
+    content: "\e[?25l\e[?7l\e[4D\e[0;38;5;215mquery\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[11C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m balance address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[62D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[12C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[A\e[50D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[11C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 343
+    content: "\e[?25l\e[?7l\e[0;38;5;231m \e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mbalance address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[61D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m balance     \e[0;38;5;16;48;5;246m Get Balance of an account                                      \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m block       \e[0;38;5;16;48;5;246m Get block details by block number                              \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m code        \e[0;38;5;16;48;5;246m Get code of the smart contract at address                      \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m storage     \e[0;38;5;16;48;5;246m Get the first \"count\" number of an address. \e[0;34;48;5;246m^J\e[0;38;5;16;48;5;246mcount default = 1\e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m transaction \e[0;38;5;16;48;5;246m Get transaction details by hash                                \e[0;38;5;16;48;5;238m \e[5A\e[78D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 942
+    content: "\e[?25l\e[?7l\e[0;38;5;231ms\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[5A\e[13C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mtorage address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[60D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[14C\e[0;38;5;16;48;5;250m storage \e[0;38;5;16;48;5;246m Get the first \"count\" number of an address. \e[0;34;48;5;246m^J\e[0;38;5;16;48;5;246mcount default = 1\e[0;38;5;16;48;5;238m \e[A\e[74D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 50
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 295
+    content: "\e[?25l\e[?7l\e[0;38;5;231mt\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[14C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241morage address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[59D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[15C\e[0;38;5;16;48;5;250m storage \e[0;38;5;16;48;5;246m Get the first \"count\" number of an address. \e[0;34;48;5;246m^J\e[0;38;5;16;48;5;246mcount default = 1\e[0;38;5;16;48;5;238m \e[A\e[74D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 131
+    content: "\e[?25l\e[?7l\e[0;38;5;231mo\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[15C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mrage address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[58D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0m\r\r\n\e[16C\e[0;38;5;16;48;5;250m storage \e[0;38;5;16;48;5;246m Get the first \"count\" number of an address. \e[0;34;48;5;246m^J\e[0;38;5;16;48;5;246mcount default = 1\e[0;38;5;16;48;5;238m \e[A\e[74D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 186
+    content: "\e[?25l\e[?7l\e[0;38;5;231mr\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[16C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mage address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[57D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[17C\e[0;38;5;16;48;5;250m storage \e[0;38;5;16;48;5;246m Get the first \"count\" number of an address. \e[0;34;48;5;246m^J\e[0;38;5;16;48;5;246mcount default = 1\e[0;38;5;16;48;5;238m \e[A\e[74D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 99
+    content: "\e[?25l\e[?7l\e[0;38;5;231ma\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[17C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mge address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[56D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[18C\e[0;38;5;16;48;5;250m storage \e[0;38;5;16;48;5;246m Get the first \"count\" number of an address. \e[0;34;48;5;246m^J\e[0;38;5;16;48;5;246mcount default = 1\e[0;38;5;16;48;5;238m \e[A\e[74D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 178
+    content: "\e[?25l\e[?7l\e[0;38;5;231mg\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[18C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241me address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[55D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[19C\e[0;38;5;16;48;5;250m storage \e[0;38;5;16;48;5;246m Get the first \"count\" number of an address. \e[0;34;48;5;246m^J\e[0;38;5;16;48;5;246mcount default = 1\e[0;38;5;16;48;5;238m \e[A\e[74D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 73
+    content: "\e[?25l\e[?7l\e[0;38;5;231me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[19C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[54D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[20C\e[0;38;5;16;48;5;250m storage \e[0;38;5;16;48;5;246m Get the first \"count\" number of an address. \e[0;34;48;5;246m^J\e[0;38;5;16;48;5;246mcount default = 1\e[0;38;5;16;48;5;238m \e[A\e[74D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[19C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 149
+    content: "\e[?25l\e[?7l\e[7D\e[0;38;5;221mstorage\e[0;38;5;231m \e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241maddress=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[53D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[21C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided>      \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[21C\e[0;38;5;16;48;5;250m count=   \e[0;38;5;16;48;5;246m [int, default: 10] <no description provided>   \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[21C\e[0;38;5;16;48;5;250m block=   \e[0;38;5;16;48;5;246m [int, default: None] <no description provided> \e[0;38;5;16;48;5;238m \e[3A\e[59D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 378
+    content: "\e[?25l\e[?7l\e[0;38;5;231ma\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[3A\e[21C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241mddress=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[52D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[22C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 168
+    content: "\e[?25l\e[?7l\e[0;38;5;231md\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[22C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mdress=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[51D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[23C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 138
+    content: "\e[?25l\e[?7l\e[0;38;5;231md\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[23C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mress=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[50D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[24C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 141
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 50
+    content: "\e[?25l\e[?7l\e[0;38;5;231mr\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[24C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mess=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[49D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0m\r\r\n\e[25C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 80
+    content: "\e[?25l\e[?7l\e[0;38;5;231me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[25C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mss=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[48D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[26C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 217
+    content: "\e[?25l\e[?7l\e[0;38;5;231ms\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[26C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241ms=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[47D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[27C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 136
+    content: "\e[?25l\e[?7l\e[0;38;5;231ms\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[27C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241m=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[46D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[28C\e[0;38;5;16;48;5;250m address= \e[0;38;5;16;48;5;246m [str, required] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[54D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 491
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 46
+    content: "\e[?25l\e[?7l\e[7D\e[0;38;5;231maddress\e[0;38;5;197m=\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[28C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241m\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[45D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 329
+    content: "\e[?25l\e[?7l\e[0;38;5;89;48;5;233m\"\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241m0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[44D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 314
+    content: "\e[?25l\e[?7l\e[0;38;5;141m0\e[0;38;5;231mx89d24a6b4ccb1b6faa2625fe562bdd9a23260359\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0;38;5;241m\"\e[0m \e[2D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 294
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 98
+    content: "\e[?25l\e[?7l\e[43D\e[0;38;5;186m\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 721
+    content: "\e[?25l\e[?7l\e[73D\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0;38;5;215mquery\e[0;38;5;231m \e[0;38;5;221mstorage\e[0;38;5;231m \e[0;38;5;231maddress\e[0;38;5;197m=\e[0;38;5;186m\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m                       \r\e[96C \r\e[0m\r\r\n\e[J\e[?7h\e[0m\e[?12l\e[?25h\e[?2004l"
+  - delay: 247
+    content: "\e[32mStorage 0 = 0x000000000000000000000000000000000000000000477e88021109ebb3c13802 (86431260275585441817769986)\e[0m\r\n"
+  - delay: 196
+    content: "\e[32mStorage 1 = 0x0000000000000000000000000000000000000000000000000000000000000000 (\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0)\e[0m\r\n"
+  - delay: 107
+    content: "\e[32mStorage 2 = 0x0000000000000000000000000000000000000000000000000000000000000000 (\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0)\e[0m\r\n"
+  - delay: 312
+    content: "\e[32mStorage 3 = 0x000000000000000000000000315cbb88168396d12e1a255f9cb935408fe80710 (281808552634430360160329929650755202592717408016)\e[0m\r\n"
+  - delay: 131
+    content: "\e[32mStorage 4 = 0x0000000000000000000000000000000000000000000000000000000000000000 (\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0)\e[0m\r\n"
+  - delay: 105
+    content: "\e[32mStorage 5 = 0x4441490000000000000000000000000000000000000000000000000000000000 (DAI\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0)\e[0m\r\n"
+  - delay: 121
+    content: "\e[32mStorage 6 = 0x0000000000000000000000000000000000000000000000000000000000000012 (\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x12)\e[0m\r\n"
+  - delay: 92
+    content: "\e[32mStorage 7 = 0x44616920537461626c65636f696e2076312e3000000000000000000000000000 (Dai Stablecoin v1.0\0\0\0\0\0\0\0\0\0\0\0\0\0)\e[0m\r\n"
+  - delay: 104
+    content: "\e[32mStorage 8 = 0x0000000000000000000000000000000000000000000000000000000000000000 (\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0)\e[0m\r\n"
+  - delay: 120
+    content: "\e[32mStorage 9 = 0x0000000000000000000000000000000000000000000000000000000000000000 (\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0)\e[0m\r\n\e[?1l\e[6n\e[?2004h\e[?25l\e[0m\e[?7l\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0m \e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m                                                                                                \r\e[96C \r\e[7A\e[7C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0;38;5;231;48;5;234mLegions  Verbose   \e[0;38;5;231;48;5;19mOFF\e[0;38;5;231;48;5;234m                                                                          \r\e[96C \r\e[8A\e[7C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 994
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1002
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1007
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1005
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 6
+    content: "\e[?25l\e[?7l\e[0;38;5;197mq\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 6
+    content: "\e[?25l\e[?7l\e[0;38;5;241muery storage address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[66D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m quit  \e[0;38;5;16;48;5;246m Exits the program                        \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m q     \e[0;38;5;16;48;5;246m Exits the program                        \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[3A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 102
+    content: "\e[?25l\e[?7l\b\e[0;38;5;16;48;5;197mqu\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[3A\e[8C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mery storage address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[65D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m quit  \e[0;38;5;16;48;5;246m Exits the program                        \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[2A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 96
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[2A\e[9C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mry storage address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[64D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[10C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 162
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mr\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241my storage address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[63D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[A\e[50D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 192
+    content: "\e[?25l\e[?7l\e[4D\e[0;38;5;215mquery\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[11C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241m storage address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[62D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[12C\e[0;38;5;16;48;5;250m query \e[0;38;5;16;48;5;246m Query Blockchain (Storage, balance, etc) \e[0;38;5;16;48;5;238m \e[A\e[50D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[11C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 273
+    content: "\e[?25l\e[?7l\e[0;38;5;231m \e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mstorage address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[61D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\e[?7l\e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m balance     \e[0;38;5;16;48;5;246m Get Balance of an account                                      \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m block       \e[0;38;5;16;48;5;246m Get block details by block number                              \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m code        \e[0;38;5;16;48;5;246m Get code of the smart contract at address                      \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m storage     \e[0;38;5;16;48;5;246m Get the first \"count\" number of an address. \e[0;34;48;5;246m^J\e[0;38;5;16;48;5;246mcount default = 1\e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[13C\e[0;38;5;16;48;5;250m transaction \e[0;38;5;16;48;5;246m Get transaction details by hash                                \e[0;38;5;16;48;5;238m \e[5A\e[78D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 126
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1000
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 791
+    content: "\e[?25l\e[?7l\e[0;38;5;231mb\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[5A\e[13C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241malance address=\"0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359\"\e[0m \e[60D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[14C\e[0;38;5;16;48;5;250m balance \e[0;38;5;16;48;5;246m Get Balance of an account         \e[0;38;5;16;48;5;238m \e[0m\r\r\n\e[14C\e[0;38;5;16;48;5;250m block   \e[0;38;5;16;48;5;246m Get block details by block number \e[0;38;5;16;48;5;238m \e[2A\e[45D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 201
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 26
+    content: "\e[?25l\e[?7l\e[0;38;5;231ml\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[2A\e[14C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[15C\e[0;38;5;16;48;5;250m block \e[0;38;5;16;48;5;246m Get block details by block number \e[0;38;5;16;48;5;238m \e[A\e[43D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 177
+    content: "\e[?25l\e[?7l\e[0;38;5;231mo\e[0m \e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[15C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[16C\e[0;38;5;16;48;5;250m block \e[0;38;5;16;48;5;246m Get block details by block number \e[0;38;5;16;48;5;238m \e[A\e[43D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 418
+    content: "\e[?25l\e[?7l\e[0;38;5;231mc\e[0m \e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[16C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[17C\e[0;38;5;16;48;5;250m block \e[0;38;5;16;48;5;246m Get block details by block number \e[0;38;5;16;48;5;238m \e[A\e[43D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 82
+    content: "\e[?25l\e[?7l\e[0;38;5;231mk\e[0m \e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[17C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[18C\e[0;38;5;16;48;5;250m block \e[0;38;5;16;48;5;246m Get block details by block number \e[0;38;5;16;48;5;238m \e[A\e[43D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[17C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 182
+    content: "\e[?25l\e[?7l\e[5D\e[0;38;5;221mblock\e[0;38;5;231m \e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[19C\e[0;38;5;16;48;5;250m block= \e[0;38;5;16;48;5;246m [int, default: None] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[57D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 87
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1004
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 129
+    content: "\e[?25l\e[?7l\e[0;38;5;141m1\e[0m \e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[19C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 231
+    content: "\e[?25l\e[?7l\e[0;38;5;141m1\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 630
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 446
+    content: "\e[?25l\e[?7l\b\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 140
+    content: "\e[?25l\e[?7l\b\e[0m \e[0m\e[K\b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 253
+    content: "\e[?25l\e[?7l\e[0;38;5;231mb\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[20C\e[0;38;5;16;48;5;250m block= \e[0;38;5;16;48;5;246m [int, default: None] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[57D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 150
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 18
+    content: "\e[?25l\e[?7l\e[0;38;5;231ml\e[0m \e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[20C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[21C\e[0;38;5;16;48;5;250m block= \e[0;38;5;16;48;5;246m [int, default: None] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[57D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 179
+    content: "\e[?25l\e[?7l\e[0;38;5;231mo\e[0m \e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[21C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[22C\e[0;38;5;16;48;5;250m block= \e[0;38;5;16;48;5;246m [int, default: None] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[57D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 193
+    content: "\e[?25l\e[?7l\e[0;38;5;231mc\e[0m \e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[22C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[23C\e[0;38;5;16;48;5;250m block= \e[0;38;5;16;48;5;246m [int, default: None] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[57D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 97
+    content: "\e[?25l\e[?7l\e[0;38;5;231mk\e[0m \e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[23C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[24C\e[0;38;5;16;48;5;250m block= \e[0;38;5;16;48;5;246m [int, default: None] <no description provided> \e[0;38;5;16;48;5;238m \e[A\e[57D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 320
+    content: "\e[?25l\e[?7l\e[5D\e[0;38;5;231mblock\e[0;38;5;197m=\e[0m \e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[24C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 159
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 361
+    content: "\e[?25l\e[?7l\e[0;38;5;141m1\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 179
+    content: "\e[?25l\e[?7l\e[0;38;5;141m1\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 234
+    content: "\e[?25l\e[?7l\e[27D\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0;38;5;215mquery\e[0;38;5;231m \e[0;38;5;221mblock\e[0;38;5;231m \e[0;38;5;231mblock\e[0;38;5;197m=\e[0;38;5;141m11\e[0m                                                                     \r\e[96C \r\e[0m\r\r\n\e[J\e[?7h\e[0m\e[?12l\e[?25h\e[?2004l"
+  - delay: 129
+    content: "\e[33mblock 11 details = \r\n AttributeDict({'difficulty': 17171460106, 'extraData': HexBytes('0x476574682f76312e302e302d30636463373634372f6c696e75782f676f312e34'), 'gasLimit': 5000, 'gasUsed': 0, 'hash': HexBytes('0x3f5e756c3efcb93099361b7ddd0dabfeaa592439437c1c836e443ccb81e93242'), 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'miner': '0x19dafe19F11E960E4cCfC6A5AA8890ebD748cA1E', 'mixHash': HexBytes('0x5b1f9cc92e652b9448840c6ae40a63d2cdc2f360eed6dfb917a84f3e85a80feb'), 'nonce': HexBytes('0x23447ad120ba5531'), 'number': 11, 'parentHash': HexBytes('0x4ff4a38b278ab49f7739d3a4ed4e12714386a9fdf72192f2e8f7da7822f10b4d'), 'receiptsRoot': HexBytes('0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421'), 'sha3Uncles': HexBytes('0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347'), 'size': 544, 'stateRoot': HexBytes('0x03f930c087b70f3385db68fe6bf128719e2d9a4b0a133e53b32db2fa25d345fd'), 'timestamp': 1438270136, 'totalDifficulty': 205940342835, 'transactions': [], 'transactionsRoot': HexBytes('0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421'), 'uncles': []})\e[0m\r\n\e[?1l\e[6n\e[?2004h\e[?25l\e[0m\e[?7l\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0m \e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m                                                                                                \r\e[96C \r\e[7A\e[7C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0;38;5;231;48;5;234mLegions  Verbose   \e[0;38;5;231;48;5;19mOFF\e[0;38;5;231;48;5;234m                                                                          \r\e[96C \r\e[8A\e[7C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 81
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 918
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1000
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1005
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 450
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mh\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241melp\e[0m \e[4D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 99
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197me\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[8C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mlp\e[0m \e[3D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 168
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197ml\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[9C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mp\e[0m \e[2D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[10C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 92
+    content: "\e[?25l\e[?7l\e[3D\e[0;38;5;34mhelp\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m help  \e[0;38;5;16;48;5;246m Prints help about all the commands \e[0;38;5;16;48;5;238m \e[A\e[44D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 169
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 77
+    content: "\e[?25l\e[?7l\e[11D\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> help\e[0m                                                                                     \r\e[96C \r\e[0m\r\r\n\e[J\e[?7h\e[0m\e[?12l\e[?25h\e[?2004l+-------------+----------------------------------------------------------------------------+\r\n| Command     | Description                                                                |\r\n+-------------+----------------------------------------------------------------------------+\r\n| \e[35mgetnodeinfo\e[0m | Prints information about the node (run setnode before this)                |\r\n| \e[35minvestigate\e[0m | Investigate further in the node (e.g. check if accounts are unlocked, etc) |\r\n| \e[35mquery\e[0m       | Query Blockchain (Storage, balance, etc)                                   |\r\n| \e[35msethost\e[0m     | Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step |\r\n| \e[35mversion\e[0m     | Print Versions (If connected to a node it will print the host version too) |\r\n+-------------+----------------------------------------------------------------------------+\r\n\e[33mBuilt-in Commands\e[0m\r\n+----------+------------------------------------------------------------------+\r\n| Command  | Description                                                      |\r\n+----------+------------------------------------------------------------------+\r\n| \e[35m:verbose\e[0m | Prints or changes verbosity level, accepts integer or True/False |\r\n| \e[35m?\e[0m        | Prints help about all the commands                               |\r\n| \e[35mconnect\e[0m  | Start the interactive mode                                       |\r\n| \e[35mexit\e[0m     | Exits the program                                                |\r\n| \e[35mhelp\e[0m     | Prints help about all the commands                               |\r\n| \e[35mq\e[0m        | Exits the program                                                |\r\n| \e[35mquit\e[0m     | Exits the program                                                |\r\n+----------+------------------------------------------------------------------+\r\n\e[?1l\e[6n\e[?2004h\e[?25l\e[0m\e[?7l\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0m \e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0m                                                                                                \r\e[96C \r\e[7A\e[7C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\r\r\n\e[0;38;5;231;48;5;234mLegions  Verbose   \e[0;38;5;231;48;5;19mOFF\e[0;38;5;231;48;5;234m                                                                          \r\e[96C \r\e[8A\e[7C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 918
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 81
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 1005
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 292
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197me\e[0m \b\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mxit\e[0m \e[4D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[8C\e[0;38;5;16;48;5;250m exit  \e[0;38;5;16;48;5;246m Exits the program \e[0;38;5;16;48;5;238m \e[A\e[27D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 274
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mx\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[8C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mit\e[0m \e[3D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[9C\e[0;38;5;16;48;5;250m exit  \e[0;38;5;16;48;5;246m Exits the program \e[0;38;5;16;48;5;238m \e[A\e[27D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 266
+    content: "\e[?25l\e[?7l\e[0;38;5;16;48;5;197mi\e[0m \e[0m\e[K\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[9C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0;38;5;241mt\e[0m \e[2D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[10C\e[0;38;5;16;48;5;250m exit  \e[0;38;5;16;48;5;246m Exits the program \e[0;38;5;16;48;5;238m \e[A\e[27D\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 154
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 54
+    content: "\e[?25l\e[?7l\e[3D\e[0;38;5;197mexit\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[11C\e[0;38;5;16;48;5;250m exit  \e[0;38;5;16;48;5;246m Exits the program \e[0;38;5;16;48;5;238m \e[A\e[27D\e[?7h\e[0m\e[?12l\e[?25h\e[?25l\e[?7l\e[0m\r\r\n\e[C\e[0m\e[K\e[A\e[10C\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 935
+    content: "\e[?25l\e[?7l\e[?7h\e[0m\e[?12l\e[?25h"
+  - delay: 450
+    content: "\e[?25l\e[?7l\e[11D\e[0m\e[J\e[0;38;5;95msbeta\e[0;38;5;34m> \e[0;38;5;197mexit\e[0m                                                                                     \r\e[96C \r\e[0m\r\r\n\e[J\e[?7h\e[0m\e[?12l\e[?25h\e[?2004l"
+  - delay: 87
+    content: "\r\n 0 [\e[0;33m09-21 04:40:56\e[0m]\e[31m (master)\e[0m \e[0;35m~/Documents/Github/Legions/legions\e[0m \e[0m\r\n\U0001F37A  "
+  - delay: 1446
+    content: "logout\r\n"

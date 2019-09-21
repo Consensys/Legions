@@ -1,15 +1,21 @@
 from setuptools import setup
 
-setup(name='legion',
-      version='0.3',
-      description='Ethereum/EVM Node Security Toolkit',
-      url='https://github.com/shayanb/Legion',
+with open("README.md", "r") as fh:
+    readme = fh.read()
+
+
+setup(name='legions',
+      version='0.4',
+      description='Ethereum/EVM Node Security Toolkit - Handy toolkit for security researchers poking around Ethereum nodes (and contracts)',
+      long_description=readme,
+      long_description_content_type="text/markdown",  
+      url='https://github.com/shayanb/Legions',
       author='Shayan Eskandari - ConsenSys Diligence',
       author_email='shayan.eskandari@consensys.net',
       license='MIT',
-      packages=['legion'],
+      packages=['legions'],
       package_data={
-          'legion': ['commands/**'],
+          'legions': ['commands/**'],
       },
       install_requires=[
           'python-nubia',
@@ -22,9 +28,10 @@ setup(name='legion',
           'wcwidth',
           'web3>=5.1.0'
           #'requests',
-      ],      
+      ],    
+
       entry_points='''
           [console_scripts]
-          legion=legion.main:main
+          legions=legions.main:main
       ''',
       zip_safe=False)
