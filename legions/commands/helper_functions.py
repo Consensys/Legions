@@ -1,5 +1,6 @@
 import requests
 import json
+from termcolor import cprint
 
 
 ChainID_JSON = "chains.json"

@@ -16,6 +16,12 @@ from legions.commands.helper_functions import getChainName
 w3 = Web3()
 LEGION_VERSION = "0.4"
 INFURA_URL = "https://mainnet.infura.io/v3/c3914c0859de473b9edcd6f723b4ea69"
+PEER_SAMPLE = "enode://000331f91e4343a7145be69f1d455b470d9ba90bdb6d74fe671b28af481361c931b632f03c03dde5ec4c34f2289064ccd4775f758fb95e9496a1bd5a619ae0fe@lfbn-lyo-1-210-35.w86-202.abo.wanadoo.fr:30303"
+#TODO ^ a real verbose node for this! 
+
+
+LEGION_TEST_PASS = "Legion2019"
+LEGION_TEST_PRV = "0x28d96497361cfc7cde5f253232d1ea300333891792d5922991d98683e1fb05c6" #0x9541ba003233f53afc11be1834f1fd26fb7c2060
 
 Protocols = ["http", "rpc", "ipc", "ws"]
 host = None
@@ -50,7 +56,6 @@ def sethost(host: str):
         cprint("Web3 API Version: {}".format(w3.api), "red")
         cprint("Cannot connect to: {} ".format(host), "red")
 
-    # optional, by default it's 0
     return 0
 
 
@@ -102,31 +107,6 @@ def version():
         cprint("Not connected to any hosts.", "red")
 
 
-
-# @command
-# @argument("number", type=int)
-# async def triple(number):
-#     "Calculates the triple of the input value"
-#     cprint("Input is {}".format(number))
-#     cprint("Type of input is {}".format(type(number)))
-#     cprint("{} * 3 = {}".format(number, number * 3))
-#     await asyncio.sleep(2)
-
-
-# @command
-# @argument("style", description="Pick a style", choices=["test", "toast", "toad"])
-# @argument("stuff", description="more colors", choices=["red", "green", "blue"])
-# @argument("code", description="Color code", choices=[12, 13, 14])
-# def pick(style: str, stuff: typing.List[str], code: int):
-#     """
-#     A style picking tool
-#     """
-#     cprint("Style is '{}' code is {}".format(style, code), "yellow")
-
-
-# instead of replacing _ we rely on camelcase to - super-command
-
-
 @command
 class Investigate:
     "Investigate further in the node (e.g. check if accounts are unlocked, etc)"
@@ -142,11 +122,14 @@ class Investigate:
     """Investigate further in the node (e.g. check if accounts are unlocked, etc"""
 
     @command("accounts")
-    def investigate_accounts(self):
+    @argument("all", description="Show me all the details", aliases=["A"])
+    @argument("intrusive", description="Be intrusive, try to make new accounts, etc", aliases=["i"])
+    def investigate_accounts(self, all:bool = True, intrusive:bool = True): #TODO: make these default to False for public use
         """
         Investigate accounts (e.g. check if accounts are unlocked, etc)
         """
         if (w3.isConnected()):
+            coinbase = None
             try:
                 coinbase = w3.eth.coinbase
             except Exception as e:
@@ -158,87 +141,108 @@ class Investigate:
                     cprint("Nothing to do here")
                     return 0
             
-            for account in accounts:
-                # cprint("Balance of {} is : {}".format(account, w3.eth.getBalance(account)), "white")
-                # try:
-                #     cprint("Trying to unlock {}: {}".format(account, w3.parity.personal.unlockAccount(account, "")), "white")
-                # except Exception as e:
-                #     cprint("Failed to unlock: {}".format(e))
-                pass
-            #web3.geth.personal.unlockAccount(self, account, passphrase, duration=None)
-       #cprint("Web3 API Version: {}".format(w3.geth.personal.listAccounts()), "white")
-            # cprint("importRawKey: {}".format(w3.parity.personal.importRawKey("0x98f55b035870ed23884334cafe62739128043414097e1c6a3a4872131dc393a9", "")), "white")
-            cprint("Number of Accounts: {}".format(len(w3.eth.accounts)), "green")    
-            cprint("newAccount: {}".format(w3.parity.personal.newAccount("Legion2019")), "white") #WORKS!!
-            w3.geth.personal.newAccount(self, "Legion2019")
+            if all:
+                for account in accounts:
+                    cprint("Balance of {} is : {}".format(account, w3.eth.getBalance(account)), "white")
+                    # try:
+                    #     cprint("Trying to unlock {}: {}".format(account, w3.parity.personal.unlockAccount(account, "")), "white")
+                    # except Exception as e:
+                    #     cprint("Failed to unlock: {}".format(e))
+                    pass
+            else:
+                cprint("Number of Accounts: {}".format(len(w3.eth.accounts)), "green")    
 
-            cprint("Web3 API Version: {}".format(w3.api), "white")
-            cprint("connected to: {}".format(w3.provider._active_provider.endpoint_uri), "white")
-            cprint("Version: {}".format(w3.clientVersion), "green")
+            
+            #cprint("logs: {}".format(w3.eth.getLogs()), "white") #needs to pass filter_params --> maybe based on the accounts? filter events of the accounts hu? 
+
+            if "parity" in (w3.clientVersion.lower()):
+                ww3 = w3.parity
+            elif "geth" in (w3.clientVersion.lower()): 
+                ww3 = w3.geth
+
+            if intrusive:
+                try:
+                    cprint("importRawKey: {}".format(ww3.personal.importRawKey(LEGION_TEST_PRV, LEGION_TEST_PASS) ), "green")
+                except Exception as e:
+                    cprint("importRawKey: {}".format(e), "yellow")
+                try:
+                    cprint("newAccount: {}".format(ww3.personal.newAccount(LEGION_TEST_PASS)), "white")
+                except Exception as e:
+                    cprint("newAccount: {}".format(e), "yellow")   
+
+
+            #web3.geth.personal.unlockAccount(self, account, passphrase, duration=None)
             cprint("--" * 32)
 
 
     @command("admin")
-    def investigate_admin(self): 
+    @argument("intrusive", description="Be intrusive, try to add peers, etc", aliases=["i"])
+    def investigate_admin(self, intrusive: bool = False): #TODO: make these default to False for public use
         """
-        Investigate accounts (e.g. functionalities nder the admin_ namespace)
+        Investigate accounts (e.g. functionalities under the admin_ namespace)
         """
-        print(w3.clientVersion)
+        cprint("clientVersion: {}".format(w3.clientVersion), "white")
         # More interfaces here: https://web3py.readthedocs.io/en/stable/web3.geth.html
-        # if "geth" in (w3.clientVersion.lower()): #TODO: make this figure out if the node is Geth or Parity and send the appropriate commands
-        try:
-            cprint("datadir: {}".format(w3.geth.admin.datadir()), "white")
-        except Exception as e:
-            cprint("datadir: {}".format(e), "red")
-        try:
-            cprint("nodeInfo: {}".format(w3.geth.admin.nodeInfo()), "white")
-        except Exception as e:
-            cprint("nodeInfo {}".format(e), "red")        
-        try:
-            cprint("peers: {}".format(w3.geth.admin.peers()), "white")
-        except Exception as e:
-            cprint("peers {}".format(e), "red")
-        try:
-            cprint("txpool.status: {}".format(w3.geth.txpool.status()), "white")
-        except Exception as e:
-            cprint("txpool.status {}".format(e), "red")       
-        try:
-            cprint("shh.version: {}".format(w3.geth.shh.version()), "white")
-        except Exception as e:
-            cprint("shh.version: {}".format(e), "red")       
-        try:
-            cprint("Wshh.info: {}".format(w3.geth.shh.info()), "white")
-        except Exception as e:
-            cprint("shh.info: {}".format(e), "red")
-        # elif "parity" in (w3.clientVersion.lower()):
+        if "geth" in (w3.clientVersion.lower()): #TODO: make this figure out if the node is Geth or Parity and send the appropriate commands
+            if intrusive:
+                try:
+                    cprint("AddPeer: {}".format(w3.geth.admin.add_peer(PEER_SAMPLE)), "green")
+                except Exception as e:
+                    cprint("AddPeer: {}".format(e), "yellow")
+            
+            try:
+                cprint("datadir: {}".format(w3.geth.admin.datadir()), "green")
+            except Exception as e:
+                cprint("datadir: {}".format(e), "yellow")
+            try:
+                cprint("nodeInfo: {}".format(w3.geth.admin.nodeInfo()), "green")
+            except Exception as e:
+                cprint("nodeInfo {}".format(e), "yellow")        
+            try:
+                cprint("peers: {}".format(w3.geth.admin.peers()), "green")
+            except Exception as e:
+                cprint("peers {}".format(e), "yellow")
+            try:
+                cprint("txpool.status: {}".format(w3.geth.txpool.status()), "green")
+            except Exception as e:
+                cprint("txpool.status {}".format(e), "yellow")       
+            try:
+                cprint("shh.version: {}".format(w3.geth.shh.version()), "green")
+            except Exception as e:
+                cprint("shh.version: {}".format(e), "yellow")       
+            try:
+                cprint("Wshh.info: {}".format(w3.geth.shh.info()), "green")
+            except Exception as e:
+                cprint("shh.info: {}".format(e), "yellow")
+            
+        elif "parity" in (w3.clientVersion.lower()):
+            try:
+                cprint("versionInfo: {}".format(w3.parity_versionInfo()), "green")
+            except Exception as e:
+                cprint("versionInfo: {}".format(e), "yellow")
         #     try:
-        #         cprint("datadir: {}".format(w3.parity_versionInfo()), "white")
+        #         cprint("nodeInfo: {}".format(w3.parity_lockedHardwareAccountsInfo()), "green")
         #     except Exception as e:
-        #         cprint("datadir: {}".format(e), "red")
+        #         cprint("nodeInfo {}".format(e), "yellow")        
         #     try:
-        #         cprint("nodeInfo: {}".format(w3.parity_lockedHardwareAccountsInfo()), "white")
+        #         cprint("peers: {}".format(w3.parity_localTransactions()), "green")
         #     except Exception as e:
-        #         cprint("nodeInfo {}".format(e), "red")        
+        #         cprint("peers {}".format(e), "yellow")
         #     try:
-        #         cprint("peers: {}".format(w3.parity_localTransactions()), "white")
+        #         cprint("txpool.status: {}".format(w3.make_request("parity_listVaults", [])), "green")
         #     except Exception as e:
-        #         cprint("peers {}".format(e), "red")
+        #         cprint("txpool.status {}".format(e), "yellow")       
         #     try:
-        #         cprint("txpool.status: {}".format(w3.make_request("parity_listVaults", [])), "white")
+        #         cprint("shh.version: {}".format(w3.parity.shh.__dict__), "green")
         #     except Exception as e:
-        #         cprint("txpool.status {}".format(e), "red")       
+        #         cprint("shh.version: {}".format(e), "yellow")       
         #     try:
-        #         cprint("shh.version: {}".format(w3.parity.shh.__dict__), "white")
+        #         cprint("Wshh.info: {}".format(w3.parity.shh.info()), "green")
         #     except Exception as e:
-        #         cprint("shh.version: {}".format(e), "red")       
-        #     try:
-        #         cprint("Wshh.info: {}".format(w3.parity.shh.info()), "white")
-        #     except Exception as e:
-        #         cprint("shh.info: {}".format(e), "red")
+        #         cprint("shh.info: {}".format(e), "yellow")
 
 
-
-
+    
 
 @command
 class Query:
@@ -257,7 +261,9 @@ class Query:
     """This is the super command help"""
 
     @command("balance")
-    def get_balance(self, address: str, block: int = None)  -> int:
+    @argument("address", description="Address of the account", aliases=["a"])
+    @argument("block", description="(Optional) Block number for the query (default latest)", aliases=["b"])
+    def get_balance(self, address: str, block: int = None): #  -> int:
         """
         Get Balance of an account
         """
@@ -272,10 +278,12 @@ class Query:
         address = Web3.toChecksumAddress(address)
         balance = w3.eth.getBalance(address, block_identifier=block)
         cprint("Balance of {} is : {} wei ({} Eth)".format(address, balance, Web3.fromWei(balance, 'ether')), "green")
-        return balance
 
     @command("storage")
-    def get_storage(self, address: str, count: int = 10, block: int = None) : #TODO: proper return 
+    @argument("address", description="Address of the account", aliases=["a"])
+    @argument("count", description="Number of storage slots to read", aliases=["i"])
+    @argument("block", description="(Optional) Block number for the query (default latest)", aliases=["b"])
+    def get_storage(self, address: str, count: int = 10, block: int = None) :
         """
         Get the first "count" number of an address. 
         count default = 10
@@ -305,7 +313,9 @@ class Query:
 
 
     @command("code")
-    def get_code(self, address: str, block: int = None):  #TODO: proper return 
+    @argument("address", description="Address of the account", aliases=["a"])
+    @argument("block", description="(Optional) Block number for the query (default latest)", aliases=["b"])
+    def get_code(self, address: str, block: int = None):  
         """
         Get code of the smart contract at address
         """
@@ -322,6 +332,7 @@ class Query:
 
 
     @command("block")
+    @argument("block", description="Block number (default latest)", aliases=["b"])
     def get_block(self, block: int = None):  #TODO: proper return 
         """
         Get block details by block number
@@ -334,6 +345,8 @@ class Query:
 
 
     @command("transaction")
+    @argument("hash", description="Transaction hash to query", aliases=["t"])
+    @argument("block", description="(Optional) Block number for the query (default latest)", aliases=["b"])
     def get_transaction(self, hash: str, block: int = None):  #TODO: proper return 
         """
         Get transaction details by hash
