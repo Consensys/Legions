@@ -242,7 +242,8 @@ class Investigate:
         #         cprint("shh.info: {}".format(e), "yellow")
 
 
-    
+
+
 
 @command
 class Query:
@@ -360,3 +361,27 @@ class Query:
             block = w3.eth.blockNumber
 
         cprint("transaction {} details = \n {}".format(hash, (w3.eth.getTransaction(hash))), "yellow") #TODO: make this print pretty json
+
+    @command("command")
+    @argument("method", description="RPC Method to be used (e.g. eth_getBalance)")
+    @argument("args", description="Arguments for the RPC method (comma separated)")
+    @argument("block", description="(Optional) Block number for the query (default latest)", aliases=["b"])
+    def get_transaction(self, method: str, args: str = None , block: int = None):
+        """
+        Manual RPC method with args
+        """
+
+        if (method is None):
+            cprint("Missing Argument 'method'?", "red")
+            return 0
+
+        if (block is None):
+            block = w3.eth.blockNumber
+
+        try:
+            #Signs block number 10895950    --- //, "in3" : {"verification" : "proof" }
+            cprint("{}({}): {} \n".format(method, args, w3.manager.request_blocking(method, [str(args), block])), "green")
+        except Exception as e:
+
+            cprint("failed {}({}) :  {} \n".format(method, args, e), "yellow")  
+
