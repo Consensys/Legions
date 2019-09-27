@@ -14,7 +14,7 @@ import requests
 from legions.commands.helper_functions import getChainName
 
 w3 = Web3()
-LEGION_VERSION = "0.4"
+LEGION_VERSION = "0.5.1"
 INFURA_URL = "https://mainnet.infura.io/v3/c3914c0859de473b9edcd6f723b4ea69"
 PEER_SAMPLE = "enode://000331f91e4343a7145be69f1d455b470d9ba90bdb6d74fe671b28af481361c931b632f03c03dde5ec4c34f2289064ccd4775f758fb95e9496a1bd5a619ae0fe@lfbn-lyo-1-210-35.w86-202.abo.wanadoo.fr:30303"
 #TODO ^ a real verbose node for this! 
@@ -241,6 +241,66 @@ class Investigate:
         #     except Exception as e:
         #         cprint("shh.info: {}".format(e), "yellow")
 
+    @command("slockit")
+    def investigate_slockit(self):
+        """
+        Investigate signing related endpoints
+        """
+        if (w3.isConnected()):
+            try:
+                coinbase = w3.eth.coinbase
+            except Exception as e:
+                cprint("Coinbase not available: {}".format(e), "red")   
+            accounts = w3.eth.accounts
+            if len(accounts) == 0:
+                cprint("No accounts found", "red")
+                if type(coinbase) is None: #TODO: check if we need this. If accounts = [] , then there shouldn't be coinbase (?)
+                    cprint("Nothing to do here")
+                    return 0
+            
+            #.manager.request_blocking("eth_coinbase", [])
+
+            in3_list = ["in3_stats", "in3_validatorlist", "in3_nodeList"]
+            for item in in3_list:
+                try:
+                    cprint("{}: {} \n".format(item, w3.manager.request_blocking(item, [])), "green")
+                except Exception as e:
+                    cprint("failed {}:  {} \n".format(item, e), "yellow")   
+
+            try:
+                #Signs block number 10895950
+                cprint("in3_sign(BlahBlah): {} \n".format(w3.manager.request_blocking("in3_sign", [{ "blockNumber": 10895950}])), "green")
+                #cprint("in3_sign(BlahBlah): {} \n".format(w3.manager.request_blocking("in3_sign", [{'blockNumber':i} for i in range(200)])), "green")
+            except Exception as e:
+                cprint("failed {}:  {} \n".format("in3_sign", e), "yellow")  
+
+
+            try:
+                #Signs block number 10895950    --- //, "in3" : {"verification" : "proof" }
+                cprint("eth_getBalance(address, block): {} \n".format(w3.manager.request_blocking("eth_getBalance", ["0x480B7C707373C024C77d2506A9C44bb55805E96C", 10895950])), "green")
+            except Exception as e:
+                cprint("failed {}:  {} \n".format("eth_getBalance(address, block)", e), "yellow")  
+
+            # try:
+            #     #same as eth_call 
+            #     cprint("in3_call(tx, block): {}".format(w3.manager.request_blocking("in3_call", ["0x15a9595e0d7ff4afa038b0efd54e5bb1f6342050963defbbb02bd835ea3cf14d", "10895950"])), "green")
+            # except Exception as e:
+            #     cprint("{}:  {}".format("in3_call(tx, block)", e), "yellow")  
+
+            # try:
+            #     cprint("txpool.status: {}".format(w3.geth.txpool.status()), "green")
+            # except Exception as e:
+            #     cprint("txpool.status {}".format(e), "yellow")   
+
+            # try:
+            #     cprint("txpool.status: {}".format(w3.geth.txpool.status()), "green")
+            # except Exception as e:
+            #     cprint("txpool.status {}".format(e), "yellow")   
+
+            # try:
+            #     cprint("txpool.status: {}".format(w3.geth.txpool.status()), "green")
+            # except Exception as e:
+            #     cprint("txpool.status {}".format(e), "yellow")   
 
 
     @command("sign")

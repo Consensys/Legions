@@ -2,6 +2,10 @@
 Ethereum Node Security Toolkit
 
 Handy toolkit for security researchers poking around Ethereum nodes (and contracts)
+It also has functionalities such as:
+ - Conversions (toWei, fromWei, keccak, etc)
+ - Query for balance, code, storage of smart contracts, ecrecover
+ - etc
 
 **This package is extremely beta**
 
@@ -29,12 +33,14 @@ legions
 ```
 
 | Command     | Description                                                                |
-| ------------- |------------- |
+|-------------|----------------------------------------------------------------------------|
+| conversions | Conversions possible to do with Web3                                       |
 | getnodeinfo | Prints information about the node (run setnode before this)                |
 | investigate | Investigate further in the node (e.g. check if accounts are unlocked, etc) |
 | query       | Query Blockchain (Storage, balance, etc)                                   |
 | sethost     | Setup the Web3 connection (RPC, IPC, HTTP) - This should be the first step |
 | version     | Print Versions (If connected to a node it will print the host version too) |
+
 
 
 ![demo](https://github.com/shayanb/Legions/raw/master/assets/demo.gif "Demo")
@@ -54,6 +60,5 @@ legions
  - add way more functionalities
  - `chains.json` depending on the execution path might not be found. fix it.
  - inline TODOs (tons)
- - 
 
 
