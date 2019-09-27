@@ -243,6 +243,42 @@ class Investigate:
 
 
 
+    @command("sign")
+    # @argument("all", description="Show me all the details", aliases=["A"])
+    # @argument("intrusive", description="Be intrusive, try to make new accounts, etc", aliases=["i"])
+    def investigate_sign(self, msg:str = "Legions Test", account:str = None, intrusive:bool = True): #TODO: make these default to False for public use
+        """
+        Investigate accounts (e.g. check if accounts are unlocked, etc)
+        """
+        if (w3.isConnected()):
+            coinbase = None
+            try:
+                coinbase = w3.eth.coinbase
+            except Exception as e:
+                cprint("Coinbase not available: {}".format(e), "red")   
+            accounts = w3.eth.accounts
+            if len(accounts) == 0:
+                cprint("No accounts found", "red")
+                if type(coinbase) is None: #TODO: check if we need this. If accounts = [] , then there shouldn't be coinbase (?)
+                    cprint("Nothing to do here")
+                    return 0
+            
+            if account is None:
+                for account in accounts:
+                    try:
+                        cprint("Signing {} by {} : {}".format(msg, account, w3.eth.sign(account, text= msg)), "white")
+                    except Exception as e:
+                        cprint("failed to sign by {}: ".format(account, e))
+            else:
+                try:
+                    cprint("Signing {} by {} : {}".format(msg, account, w3.eth.sign(account, text= msg)), "white")
+                except Exception as e:
+                    cprint("failed to sign by {}: ".format(account, e))
+
+            #TODO:
+            #Implement for other types and not just text: Eth.sign(account, data=None, hexstr=None, text=None)
+            #Also for : Eth.signTypedData
+
 
 
 @command
