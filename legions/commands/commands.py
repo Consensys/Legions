@@ -322,8 +322,7 @@ class Query:
     @argument("block", description="(Optional) Block number for the query (default latest)", aliases=["b"])
     def get_storage(self, address: str, count: int = 10, block: int = None) :
         """
-        Get the first "count" number of an address. 
-        count default = 10
+        Get the first "count" number of an address. count default = 10
         """
 
         if (address is None):
@@ -418,6 +417,38 @@ class Query:
             #Signs block number 10895950    --- //, "in3" : {"verification" : "proof" }
             cprint("{}({}): {} \n".format(method, args, w3.manager.request_blocking(method, [str(args), block])), "green")
         except Exception as e:
-
             cprint("failed {}({}) :  {} \n".format(method, args, e), "yellow")  
 
+    @command("ecrecover")
+    @argument("data", description="The data which hash was signed")
+    @argument("dataHash", description="The hash of the data")
+    @argument("signedData", description="Signed data")
+    def get_ecrecover(self, signedData:str, data: str = None, dataHash: str = None): 
+        """
+        Get address associated with the signature (ecrecover)
+        """
+        if (data is None) and (dataHash is None):
+            cprint("Missing Argument, either 'dataHash' or 'data' must be passed?", "red")
+            return 0
+
+        try:
+            if data is not None:
+                from eth_account.messages import encode_defunct, _hash_eip191_message
+                hex_message_hash = w3.toHex(_hash_eip191_message(encode_defunct(hexstr=data)))
+            elif dataHash is not None:
+                hex_message_hash = dataHash
+
+            sig = w3.toBytes(hexstr=signedData)
+            v, hex_r, hex_s = w3.toInt(sig[-1]), w3.toHex(sig[:32]), w3.toHex(sig[32:64])
+            address = w3.eth.account.recoverHash(hex_message_hash, signature=sig)
+            #TODO: verify this! seems that sometimes it returns wrong address
+            # test with :
+            #           data="0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675" 
+            #           signedData="0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c" 
+            #       Correct address: 0xb60e8dd61c5d32be8058bb8eb970870f07233155  //based on https://wiki.parity.io/JSONRPC-personal-module.html#personal_ecrecover
+            #       Returned address: 0x02F0D4b967a73D6907a221DB6106446F1d3d4CDB
+            
+            cprint("Address: {}".format(address), "green") #TODO: make this print pretty json
+            cprint("r: {}\ns: {}\nv: {} ".format(hex_r, hex_s, v), "white")
+        except Exception as e:
+            cprint("failed to get address: {} \n".format(e), "yellow")  
