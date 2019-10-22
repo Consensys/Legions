@@ -14,13 +14,13 @@ import requests
 from legions.commands.helper_functions import getChainName
 
 w3 = Web3()
-LEGION_VERSION = "0.5.1"
+LEGION_VERSION = "0.5.2"
 INFURA_URL = "https://mainnet.infura.io/v3/c3914c0859de473b9edcd6f723b4ea69"
 PEER_SAMPLE = "enode://000331f91e4343a7145be69f1d455b470d9ba90bdb6d74fe671b28af481361c931b632f03c03dde5ec4c34f2289064ccd4775f758fb95e9496a1bd5a619ae0fe@lfbn-lyo-1-210-35.w86-202.abo.wanadoo.fr:30303"
 #TODO ^ a real verbose node for this! 
 
 
-LEGION_TEST_PASS = "Legion2019"
+LEGION_TEST_PASS = "Legion2019" #TODO: there should be a better (recovarable) way to do this. 
 LEGION_TEST_PRV = "0x28d96497361cfc7cde5f253232d1ea300333891792d5922991d98683e1fb05c6" #0x9541ba003233f53afc11be1834f1fd26fb7c2060
 
 Protocols = ["http", "rpc", "ipc", "ws"]
@@ -44,7 +44,6 @@ def sethost(host: str):
     if not any(ext in host for ext in Protocols):
         host = "https://" + host
 
-    # if helper_functions.checkConnection(url = url, verbose=True)
     WEB3_PROVIDER_URI = host
     os.environ["WEB3_PROVIDER_URI"] = host
 
@@ -89,8 +88,6 @@ def getnodeinfo():
         cprint("Web3 API Version: {}".format(w3.api), "red")
         cprint("Cannot connect to: {} ".format(host), "red")
         cprint("Did you run sethost?", "red")
-
-    # optional, by default it's 0
     return 0
 
 @command("version")
@@ -112,7 +109,6 @@ class Investigate:
     "Investigate further in the node (e.g. check if accounts are unlocked, etc)"
 
     def __init__(self) -> None:
-        # self._shared = shared
         if not (w3.isConnected()):
             cprint("Web3 API Version: {}".format(w3.api), "red")
             cprint("Cannot connect to: {} ".format(host), "red")
@@ -144,7 +140,7 @@ class Investigate:
             if all:
                 for account in accounts:
                     cprint("Balance of {} is : {}".format(account, w3.eth.getBalance(account)), "white")
-                    # try:
+                    # try: 
                     #     cprint("Trying to unlock {}: {}".format(account, w3.parity.personal.unlockAccount(account, "")), "white")
                     # except Exception as e:
                     #     cprint("Failed to unlock: {}".format(e))
@@ -170,8 +166,6 @@ class Investigate:
                 except Exception as e:
                     cprint("newAccount: {}".format(e), "yellow")   
 
-
-            #web3.geth.personal.unlockAccount(self, account, passphrase, duration=None)
             cprint("--" * 32)
 
 
@@ -241,74 +235,13 @@ class Investigate:
         #     except Exception as e:
         #         cprint("shh.info: {}".format(e), "yellow")
 
-    @command("slockit")
-    def investigate_slockit(self):
-        """
-        Investigate signing related endpoints
-        """
-        if (w3.isConnected()):
-            try:
-                coinbase = w3.eth.coinbase
-            except Exception as e:
-                cprint("Coinbase not available: {}".format(e), "red")   
-            accounts = w3.eth.accounts
-            if len(accounts) == 0:
-                cprint("No accounts found", "red")
-                if type(coinbase) is None: #TODO: check if we need this. If accounts = [] , then there shouldn't be coinbase (?)
-                    cprint("Nothing to do here")
-                    return 0
-            
-            #.manager.request_blocking("eth_coinbase", [])
-
-            in3_list = ["in3_stats", "in3_validatorlist", "in3_nodeList"]
-            for item in in3_list:
-                try:
-                    cprint("{}: {} \n".format(item, w3.manager.request_blocking(item, [])), "green")
-                except Exception as e:
-                    cprint("failed {}:  {} \n".format(item, e), "yellow")   
-
-            try:
-                #Signs block number 10895950
-                cprint("in3_sign(BlahBlah): {} \n".format(w3.manager.request_blocking("in3_sign", [{ "blockNumber": 10895950}])), "green")
-                #cprint("in3_sign(BlahBlah): {} \n".format(w3.manager.request_blocking("in3_sign", [{'blockNumber':i} for i in range(200)])), "green")
-            except Exception as e:
-                cprint("failed {}:  {} \n".format("in3_sign", e), "yellow")  
-
-
-            try:
-                #Signs block number 10895950    --- //, "in3" : {"verification" : "proof" }
-                cprint("eth_getBalance(address, block): {} \n".format(w3.manager.request_blocking("eth_getBalance", ["0x480B7C707373C024C77d2506A9C44bb55805E96C", 10895950])), "green")
-            except Exception as e:
-                cprint("failed {}:  {} \n".format("eth_getBalance(address, block)", e), "yellow")  
-
-            # try:
-            #     #same as eth_call 
-            #     cprint("in3_call(tx, block): {}".format(w3.manager.request_blocking("in3_call", ["0x15a9595e0d7ff4afa038b0efd54e5bb1f6342050963defbbb02bd835ea3cf14d", "10895950"])), "green")
-            # except Exception as e:
-            #     cprint("{}:  {}".format("in3_call(tx, block)", e), "yellow")  
-
-            # try:
-            #     cprint("txpool.status: {}".format(w3.geth.txpool.status()), "green")
-            # except Exception as e:
-            #     cprint("txpool.status {}".format(e), "yellow")   
-
-            # try:
-            #     cprint("txpool.status: {}".format(w3.geth.txpool.status()), "green")
-            # except Exception as e:
-            #     cprint("txpool.status {}".format(e), "yellow")   
-
-            # try:
-            #     cprint("txpool.status: {}".format(w3.geth.txpool.status()), "green")
-            # except Exception as e:
-            #     cprint("txpool.status {}".format(e), "yellow")   
-
 
     @command("sign")
     # @argument("all", description="Show me all the details", aliases=["A"])
     # @argument("intrusive", description="Be intrusive, try to make new accounts, etc", aliases=["i"])
-    def investigate_sign(self, msg:str = "Legions Test", account:str = None, intrusive:bool = True): #TODO: make these default to False for public use
+    def investigate_sign(self, msg:str = "Legions Test", account:str = None, intrusive:bool = True):
         """
-        Investigate accounts (e.g. check if accounts are unlocked, etc)
+        Investigate signature functionalities 
         """
         if (w3.isConnected()):
             coinbase = None
@@ -346,17 +279,12 @@ class Query:
     "Query Blockchain (Storage, balance, etc)"
 
     def __init__(self) -> None:
-    # self._shared = shared
-
         if not (w3.isConnected()):
             cprint("Web3 API Version: {}".format(w3.api), "white")
             cprint("Not using a custom node. Run sethost to connect to your node", "red")
             os.environ["WEB3_PROVIDER_URI"] = INFURA_URL #TODO: Better default web3 instance? 
             cprint("Connecting to Infura...", "green")
         
-
-    """This is the super command help"""
-
     @command("balance")
     @argument("address", description="Address of the account", aliases=["a"])
     @argument("block", description="(Optional) Block number for the query (default latest)", aliases=["b"])
@@ -429,7 +357,7 @@ class Query:
 
     @command("block")
     @argument("block", description="Block number (default latest)", aliases=["b"])
-    def get_block(self, block: int = None):  #TODO: proper return 
+    def get_block(self, block: int = None):  
         """
         Get block details by block number
         """
@@ -443,7 +371,7 @@ class Query:
     @command("transaction")
     @argument("hash", description="Transaction hash to query", aliases=["t"])
     @argument("block", description="(Optional) Block number for the query (default latest)", aliases=["b"])
-    def get_transaction(self, hash: str, block: int = None):  #TODO: proper return 
+    def get_transaction(self, hash: str, block: int = None):   
         """
         Get transaction details by hash
         """
@@ -474,7 +402,6 @@ class Query:
             block = w3.eth.blockNumber
 
         try:
-            #Signs block number 10895950    --- //, "in3" : {"verification" : "proof" }
             cprint("{}({}): {} \n".format(method, args, w3.manager.request_blocking(method, [str(args), block])), "green")
         except Exception as e:
             cprint("failed {}({}) :  {} \n".format(method, args, e), "yellow")  
