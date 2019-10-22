@@ -99,19 +99,3 @@ class Conversions:
             cprint("keccak of {}: {}".format(value, w3.toHex(w3.keccak(text=value))), "green")
         except Exception as e:
             cprint("Failed to get keccak of {}: {}".format(value, e), "yellow")
-
-
-    # @command("solidityKeccak")
-    # @argument("value", description="value to be hashed")
-    # @argument("type", description="Solidity type of the value")
-    # def solidityKeccak(self, value:str, type:str) -> str:
-    #     """
-    #     solidityKeccak hash of the input
-    #     """
-    #     #TODO: fix this: Failed to get solidityKeccak of test: Could not discover provider while making request: method:net_version
-    #     #TODO: better type identification
-    #     #TODO: accept lists as input
-    #     try:
-    #         cprint("solidityKeccak of {}:{}: {}".format(value,type, w3.toHex(w3.solidityKeccak([type], [value]))), "green")
-    #     except Exception as e:
-    #         cprint("Failed to get solidityKeccak of {}: {}".format(value, e), "yellow")
