@@ -82,8 +82,9 @@ def getnodeinfo():
             cprint("Coinbase Account: {}".format(w3.eth.coinbase), "green") 
         except Exception as e:
             cprint("Coinbase not available: {}".format(e), "red")   
-            
-        cprint("Accounts: {}".format(w3.eth.accounts), "green")    
+        cprint("Accounts", "green")
+        for account in w3.eth.accounts:
+            cprint("- {}".format(account), "green")    
     else:
         cprint("Web3 API Version: {}".format(w3.api), "red")
         cprint("Cannot connect to: {} ".format(host), "red")
