@@ -5,7 +5,8 @@ from termcolor import cprint
 
 ChainID_JSON = "chains.json"
 
-def checkConnection(url, verbose = None):
+
+def checkConnection(url, verbose=None):
     r = requests.get(url, timeout=5)
     if verbose:
         cprint("Status Code: {}".format(r.status_code), "grey")
@@ -15,13 +16,12 @@ def checkConnection(url, verbose = None):
     else:
         return False
 
-    
 
-def getChainName(ChainID, json_file = ChainID_JSON):
+def getChainName(ChainID, json_file=ChainID_JSON):
     # chain list Source: https://chainid.network/
     # TODO: make this nicer
     try:
-        with open(json_file, 'r') as f:
+        with open(json_file, "r") as f:
             chains_dict = json.load(f)
         for chain in chains_dict:
             print
