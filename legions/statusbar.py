@@ -34,4 +34,3 @@ class LegionStatusBar(statusbar.StatusBar):
             spacer,
             is_verbose,
         ]
-

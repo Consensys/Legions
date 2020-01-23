@@ -24,4 +24,3 @@ class LegionContext(context.Context):
             raise exceptions.CommandError("Failed starting interactive mode")
         # dispatch the on connected message
         self.registry.dispatch_message(eventbus.Message.CONNECTED)
-

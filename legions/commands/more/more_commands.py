@@ -4,6 +4,7 @@
 
 from nubia import command, argument
 from web3 import Web3
+
 w3 = Web3()
 from termcolor import cprint
 
@@ -19,7 +20,7 @@ class Conversions:
 
     @command("toHex")
     @argument("value", description="value to be converted")
-    def toHex(self, value:str) -> str:
+    def toHex(self, value: str) -> str:
         """
         Converts the input text to Hex
         """
@@ -28,10 +29,9 @@ class Conversions:
         except Exception as e:
             cprint("Failed to convert {}: {} ".format(value, e), "yellow")
 
-
     @command("toText")
     @argument("value", description="value to be converted")
-    def toText(self, value:str) -> str:
+    def toText(self, value: str) -> str:
         """
         Converts the input Hex to Text
         """
@@ -40,9 +40,9 @@ class Conversions:
         except Exception as e:
             cprint("Failed to convert {}: {} ".format(value, e), "yellow")
 
-    @command("toBytes") #Does not really make sense to have this, but meh.
-    @argument("value", description="value to be converted")    
-    def toBytes(self, value:str) -> str:
+    @command("toBytes")  # Does not really make sense to have this, but meh.
+    @argument("value", description="value to be converted")
+    def toBytes(self, value: str) -> str:
         """
         Converts the input to Bytes
         """
@@ -51,51 +51,66 @@ class Conversions:
         except Exception as e:
             cprint("Failed to convert {}: {} ".format(value, e), "yellow")
 
-
     @command("toWei")
     @argument("value", description="value to be converted")
     @argument("currency", description="type of the input, unit of currency")
-    def toWei(self, value:float, currency:str = "ether") -> str:
+    def toWei(self, value: float, currency: str = "ether") -> str:
         """
         Converts the input to Wei 
         """
         try:
             cprint("toWei {}: {}".format(value, w3.toWei(value, currency)), "green")
         except Exception as e:
-            cprint("Failed to convert {} to {}: {}".format(value, currency, e), "yellow")
-
+            cprint(
+                "Failed to convert {} to {}: {}".format(value, currency, e), "yellow"
+            )
 
     @command("fromWei")
     @argument("value", description="value to be converted")
     @argument("currency", description="type of the output, unit of currency")
-    def fromWei(self, value:int, currency:str = "ether") -> str:
+    def fromWei(self, value: int, currency: str = "ether") -> str:
         """
         Converts the input to ether (or specified currency)
         """
         try:
-            cprint("fromWei {} to {}: {:18f}".format(value, currency, w3.fromWei(value, currency)), "green")
+            cprint(
+                "fromWei {} to {}: {:18f}".format(
+                    value, currency, w3.fromWei(value, currency)
+                ),
+                "green",
+            )
         except Exception as e:
-            cprint("Failed to convert {} to {}: {}".format(value,currency, e), "yellow")
+            cprint(
+                "Failed to convert {} to {}: {}".format(value, currency, e), "yellow"
+            )
 
     @command("toChecksumAddress")
     @argument("value", description="value to be converted")
-    def toChecksumAddress(self, value:str) -> str:
+    def toChecksumAddress(self, value: str) -> str:
         """
         Converts the input to Checksum Address
         """
         try:
-           cprint("toChecksumAddress of {}: {}".format(value, w3.toChecksumAddress(value)), "green")
+            cprint(
+                "toChecksumAddress of {}: {}".format(
+                    value, w3.toChecksumAddress(value)
+                ),
+                "green",
+            )
         except Exception as e:
             cprint("Failed to toChecksumAddress {}: {}".format(value, e), "yellow")
 
     @command("keccak")
     @argument("value", description="value to be hashed")
-    def keccak(self, value:str) -> str:
+    def keccak(self, value: str) -> str:
         """
         keccak hash of the input
         """
-        #TODO: support hex_str too
+        # TODO: support hex_str too
         try:
-            cprint("keccak of {}: {}".format(value, w3.toHex(w3.keccak(text=value))), "green")
+            cprint(
+                "keccak of {}: {}".format(value, w3.toHex(w3.keccak(text=value))),
+                "green",
+            )
         except Exception as e:
             cprint("Failed to get keccak of {}: {}".format(value, e), "yellow")
