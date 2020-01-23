@@ -68,7 +68,6 @@ jobs:
       - run:
           name: Deploy
           command: |
-            . venv/bin/activate
             sudo pip install --upgrade pip wheel setuptools twine
             twine upload dist/*
 
