@@ -73,12 +73,6 @@ jobs:
 
 workflows:
   version: 2
-  test:
-    jobs:
-      - test:
-        filters:
-          tags:
-            only: /.*/
   build_and_release:
     jobs:
       - test:
