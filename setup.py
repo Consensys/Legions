@@ -5,6 +5,7 @@ import os
 
 from legions.version import __version__
 
+
 def read_file(fname):
     """
     return file contents
@@ -13,6 +14,7 @@ def read_file(fname):
     """
     with open(os.path.join(os.path.dirname(__file__), fname), "r") as fd:
         return fd.read()
+
 
 class VerifyVersionCommand(install):
     """Custom command to verify that the git tag matches our version"""
@@ -45,7 +47,7 @@ setup(
     entry_points="""
           [console_scripts]
           legions=legions.main:main
-      """ ,
+      """,
     cmdclass={"verify": VerifyVersionCommand},
     zip_safe=False,
 )
