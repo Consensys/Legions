@@ -4,22 +4,27 @@ import asyncio
 import os
 import socket
 import typing
+import requests
+from web3 import Web3
 from termcolor import cprint
 from nubia import command, argument
+
 from legions.context import context
+from legions.version import __version__
+
 from web3 import Web3
 import requests
 from legions.utils.helper_functions import getChainName
 
+
 w3 = Web3()
-LEGION_VERSION = "0.5.2"
 INFURA_URL = "https://mainnet.infura.io/v3/c3914c0859de473b9edcd6f723b4ea69"
 PEER_SAMPLE = "enode://000331f91e4343a7145be69f1d455b470d9ba90bdb6d74fe671b28af481361c931b632f03c03dde5ec4c34f2289064ccd4775f758fb95e9496a1bd5a619ae0fe@lfbn-lyo-1-210-35.w86-202.abo.wanadoo.fr:30303"
 # TODO ^ a real verbose node for this!
 
 
 LEGION_TEST_PASS = (
-    "Legion2019"  # TODO: there should be a better (recovarable) way to do this.
+    "Legion2019"  # TODO: there should be a better (recoverable) way to do this.
 )
 LEGION_TEST_PRV = "0x28d96497361cfc7cde5f253232d1ea300333891792d5922991d98683e1fb05c6"  # 0x9541ba003233f53afc11be1834f1fd26fb7c2060
 
@@ -109,7 +114,7 @@ def version():
     """
     Print Versions (If connected to a node it will print the host version too)
     """
-    cprint("Legion Version: {}".format(LEGION_VERSION), "white")
+    cprint("Legion Version: {}".format(__version__), "white")
     cprint("Web3 API Version: {}".format(w3.api), "white")
     if w3.isConnected():
         cprint(
