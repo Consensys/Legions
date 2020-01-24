@@ -1,0 +1,7 @@
+linters:
+  black:
+    fixer: true
+  shellcheck:
+    shell: bash
+fixers:
+  enable: true
