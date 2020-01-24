@@ -9,7 +9,7 @@ from nubia import command, argument
 from legions.context import context
 from web3 import Web3
 import requests
-from legions.commands.helper_functions import getChainName
+from legions.utils.helper_functions import getChainName
 
 w3 = Web3()
 LEGION_VERSION = "0.5.2"
