@@ -5,23 +5,21 @@ import os
 import socket
 import typing
 import requests
-from web3 import Web3
-from termcolor import cprint
 from nubia import command, argument
+from termcolor import cprint
 
 from legions.context import context
 from legions.version import __version__
-
-from web3 import Web3
-import requests
+from legions.network.web3 import Web3
 from legions.utils.helper_functions import getChainName
 
 
-w3 = Web3()
 INFURA_URL = "https://mainnet.infura.io/v3/c3914c0859de473b9edcd6f723b4ea69"
 PEER_SAMPLE = "enode://000331f91e4343a7145be69f1d455b470d9ba90bdb6d74fe671b28af481361c931b632f03c03dde5ec4c34f2289064ccd4775f758fb95e9496a1bd5a619ae0fe@lfbn-lyo-1-210-35.w86-202.abo.wanadoo.fr:30303"
 # TODO ^ a real verbose node for this!
 
+w3 = Web3()
+w3.connect(INFURA_URL)
 
 LEGION_TEST_PASS = (
     "Legion2019"  # TODO: there should be a better (recoverable) way to do this.
@@ -46,18 +44,12 @@ def sethost(host: str):
     cprint("Input: {}".format(host), "yellow")
     cprint("Verbose? {}".format(ctx.verbose), "yellow")
 
-    w3 = Web3()
-    if not any(ext in host for ext in Protocols):
-        host = "https://" + host
-
-    WEB3_PROVIDER_URI = host
-    os.environ["WEB3_PROVIDER_URI"] = host
+    w3.connect(host)
 
     if w3.isConnected():
         cprint("Web3 API Version: {}".format(w3.api), "green")
         cprint(
-            "connected to: {}".format(w3.provider._active_provider.endpoint_uri),
-            "green",
+            "connected to: {}".format(w3.node_uri), "green",
         )
         cprint("Version: {}".format(w3.clientVersion), "green")
     else:
@@ -75,8 +67,7 @@ def getnodeinfo():
     if w3.isConnected():
         cprint("Web3 API Version: {}".format(w3.api), "white")
         cprint(
-            "connected to: {}".format(w3.provider._active_provider.endpoint_uri),
-            "white",
+            "connected to: {}".format(w3.node_uri), "white",
         )
         cprint("Version: {}".format(w3.clientVersion), "green")
         cprint("--" * 32)
@@ -118,8 +109,7 @@ def version():
     cprint("Web3 API Version: {}".format(w3.api), "white")
     if w3.isConnected():
         cprint(
-            "connected to: {}".format(w3.provider._active_provider.endpoint_uri),
-            "green",
+            "connected to: {}".format(w3.node_uri), "green",
         )
         cprint("Version: {}".format(w3.clientVersion), "green")
     else:
