@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 from termcolor import cprint
 
 
@@ -20,8 +21,9 @@ def checkConnection(url, verbose=None):
 def getChainName(ChainID, json_file=ChainID_JSON):
     # chain list Source: https://chainid.network/
     # TODO: make this nicer
+
     try:
-        with open(json_file, "r") as f:
+        with open(os.path.join(os.path.dirname(__file__), json_file), "r") as f:
             chains_dict = json.load(f)
         for chain in chains_dict:
             print

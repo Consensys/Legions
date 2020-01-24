@@ -10,8 +10,12 @@ from termcolor import cprint
 from nubia import command, argument
 
 from legions.context import context
-from legions.commands.helper_functions import getChainName
 from legions.version import __version__
+
+from web3 import Web3
+import requests
+from legions.utils.helper_functions import getChainName
+
 
 w3 = Web3()
 INFURA_URL = "https://mainnet.infura.io/v3/c3914c0859de473b9edcd6f723b4ea69"

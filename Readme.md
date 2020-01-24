@@ -5,6 +5,12 @@
 
 
 # Legions
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![CircleCI](https://circleci.com/gh/ConsenSys/Legions/tree/master.svg?style=shield)](https://circleci.com/gh/ConsenSys/Legions/tree/master)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![PyPI](https://img.shields.io/pypi/v/legions.svg)](https://pypi.org/project/legions/)
+
 Ethereum Node Security Toolkit
 
 Handy toolkit for (security) researchers poking around Ethereum nodes and contracts, now with a slick command-line interface, with auto complete commands and history.
@@ -18,7 +24,7 @@ Other functionalities:
 
 ## Installation
 
-Require `Python 3.7.0`.
+Require `Python 3.6`.
 
 ```bash
 clone https://github.com/shayanb/Legions
@@ -51,30 +57,30 @@ legions
 ![demo](https://github.com/shayanb/Legions/raw/master/assets/demo.gif "Demo")
 
 
-| Command     | [Subcommand] |  Description                                                 |
-|:-----------:|:------------|:--------------------------------------------------------------|
-| **sethost** | | **Setup the Web3 connection (RPC, IPC, HTTP)** (default to infura mainnet)|
-| **getnodeinfo**| | **Information about the connected node** (run `setnode` before this)   |
-| **conversions** | | **Conversions possible to do with Web3**                              |
-|            | fromWei    |  Converts the input to ether (to `currency` default to ether)   |
-|            | toWei    |    Converts the input to Wei (from `currency` default to ether)   |
-|            | keccak    |        keccak hash of the input                                  |
-|            | toBytes    |      Converts the input to hex representation of its Bytes      |
-|            | toChecksumAddress  |        Converts the input to Checksum Address           |
-|            | toHex    |        Converts the input text to Hex                             |
-|            | fromWei    |        Converts the input to ether (or specified currency)      |
-| **query**      |     | **Query Blockchain (Storage, balance, etc)**                       |
-|            | balance    |  Get Balance of an account                                      |
-|            | block    |  Get block details by block number                                |
-|            | code    |  Get code of the smart contract at address                         |
-|            | ecrecover |  Get address associated with the signature (ecrecover)  `BUGGY`  |
-|            | storage    |  Read the storage of a contract (`count` default = 10)          |
-|            | command    |  Manual RPC method with args                                    |
-| **investigate** | | **Investigate further in the node** (e.g. check if accounts are unlocked, etc) |
-|            | accounts | Investigate accounts (e.g. check if accounts are unlocked, etc)   |
-|            | admin| Investigate accounts (e.g. functionalities under the admin_ namespace)|
-|            | sign    |  Investigate signature functionalities                             |       
-| **version** | | **Print Versions** (If connected to a node it will print the host version too) |
+|     Command     |   [Subcommand]    |                                  Description                                   |
+| :-------------: | :---------------- | :----------------------------------------------------------------------------- |
+|   **sethost**   |                   | **Setup the Web3 connection (RPC, IPC, HTTP)** (default to infura mainnet)     |
+| **getnodeinfo** |                   | **Information about the connected node** (run `setnode` before this)           |
+| **conversions** |                   | **Conversions possible to do with Web3**                                       |
+|                 | fromWei           | Converts the input to ether (to `currency` default to ether)                   |
+|                 | toWei             | Converts the input to Wei (from `currency` default to ether)                   |
+|                 | keccak            | keccak hash of the input                                                       |
+|                 | toBytes           | Converts the input to hex representation of its Bytes                          |
+|                 | toChecksumAddress | Converts the input to Checksum Address                                         |
+|                 | toHex             | Converts the input text to Hex                                                 |
+|                 | fromWei           | Converts the input to ether (or specified currency)                            |
+|    **query**    |                   | **Query Blockchain (Storage, balance, etc)**                                   |
+|                 | balance           | Get Balance of an account                                                      |
+|                 | block             | Get block details by block number                                              |
+|                 | code              | Get code of the smart contract at address                                      |
+|                 | ecrecover         | Get address associated with the signature (ecrecover)  `BUGGY`                 |
+|                 | storage           | Read the storage of a contract (`count` default = 10)                          |
+|                 | command           | Manual RPC method with args                                                    |
+| **investigate** |                   | **Investigate further in the node** (e.g. check if accounts are unlocked, etc) |
+|                 | accounts          | Investigate accounts (e.g. check if accounts are unlocked, etc)                |
+|                 | admin             | Investigate accounts (e.g. functionalities under the admin_ namespace)         |
+|                 | sign              | Investigate signature functionalities                                          |
+|   **version**   |                   | **Print Versions** (If connected to a node it will print the host version too) |
 
 
 
@@ -86,11 +92,12 @@ legions
 
 
 ## TODO:
- - Fix `Verbose` Status bar (It does not change from `OFF`)
- - Print Accounts in `getnodeinfo` in a pretty format (One per line)
- - A way to reinitiate w3 (web3) by setting it to new host (right now it works for sethost but getnodeinfo still uses the first initiated w3)
- - add way more functionalities
- - `chains.json` depending on the execution path might not be found. fix it.
- - inline TODOs (tons)
+  - [ ] Able to connect to ws / http / https / IPC
+  - [ ] Fix `Verbose` Status bar (It does not change from `OFF`)
+  - [ ] Print Accounts in `getnodeinfo` in a pretty format (One per line)
+  - [ ] A way to reinitiate w3 (web3) by setting it to new host (right now it works for sethost but getnodeinfo still uses the first initiated w3)
+  - [ ] add way more functionalities
+  - [ ] `chains.json` depending on the execution path might not be found. fix it.
+  - [ ] inline TODOs (tons)
 
 
