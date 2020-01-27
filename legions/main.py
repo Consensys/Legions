@@ -14,3 +14,6 @@ def main():
         options=Options(persistent_history=True),
     )
     sys.exit(shell.run())
+
+if __name__ == "__main__":
+    main()
