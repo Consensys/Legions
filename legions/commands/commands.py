@@ -305,8 +305,8 @@ class Investigate:
                 for account in accounts:
                     try:
                         cprint(
-                            "Signing {} by {} : {}".format(
-                                msg, account, w3.eth.sign(account, text=msg)
+                            'Signing "{}" by "{}" \n=> "{}"'.format(
+                                msg, account, w3.eth.sign(account, text=msg).hex()
                             ),
                             "white",
                         )
@@ -315,8 +315,8 @@ class Investigate:
             else:
                 try:
                     cprint(
-                        "Signing {} by {} : {}".format(
-                            msg, account, w3.eth.sign(account, text=msg)
+                        'Signing "{}" by "{}" \n=> "{}"'.format(
+                            msg, account, w3.eth.sign(account, text=msg).hex()
                         ),
                         "white",
                     )
