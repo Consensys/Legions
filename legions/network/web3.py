@@ -34,3 +34,33 @@ class Web3(_web3):
             raise ValueError(
                 "The provided node is not valid. It must start with 'http://' or 'https://' or 'ws://' or a path to an IPC socket file."
             )
+
+    @property
+    def api(self) -> str:
+        """
+        Web3 version
+        """
+
+        version = None
+
+        try:
+            version = self.api
+        except Exception:
+            version = self.version.api
+
+        return version
+
+    @property
+    def clientVersion(self) -> str:
+        """
+        Node version
+        """
+
+        version = None
+
+        try:
+            version = self.clientVersion
+        except Exception:
+            version = self.version.node
+
+        return version
