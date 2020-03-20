@@ -6,6 +6,7 @@ from nubia import command, argument
 
 w3 = Web3()
 
+
 @command
 class ens:
     "Ethereum name system"
