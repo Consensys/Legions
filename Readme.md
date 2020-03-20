@@ -92,12 +92,12 @@ legions
 
 
 ## TODO:
-  - [ ] Able to connect to ws / http / https / IPC
+  - [x] Able to connect to ws / http / https / IPC
   - [ ] Fix `Verbose` Status bar (It does not change from `OFF`)
   - [ ] Print Accounts in `getnodeinfo` in a pretty format (One per line)
-  - [ ] A way to reinitiate w3 (web3) by setting it to new host (right now it works for sethost but getnodeinfo still uses the first initiated w3)
+  - [x] A way to reinitiate w3 (web3) by setting it to new host (right now it works for sethost but getnodeinfo still uses the first initiated w3)
   - [ ] add way more functionalities
-  - [ ] `chains.json` depending on the execution path might not be found. fix it.
+  - [x] `chains.json` depending on the execution path might not be found. fix it.
   - [ ] inline TODOs (tons)
 
 
