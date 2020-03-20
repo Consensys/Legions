@@ -80,6 +80,9 @@ legions
 |                 | accounts          | Investigate accounts (e.g. check if accounts are unlocked, etc)                |
 |                 | admin             | Investigate accounts (e.g. functionalities under the admin_ namespace)         |
 |                 | sign              | Investigate signature functionalities                                          |
+|     **ens**     |                   | **Do Ethereum Name Service queries (supported on the mainnet only)**           |
+|                 | toName            | Transform an address to the ENS name                                           |
+|                 | toAddress         | Transform an ENS name to the Ethereum public address                           |
 |   **version**   |                   | **Print Versions** (If connected to a node it will print the host version too) |
 
 
