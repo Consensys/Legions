@@ -2,9 +2,7 @@ from ens import ENS as _ens
 from web3 import Web3
 from termcolor import cprint
 from nubia import command, argument
-
-
-w3 = Web3()
+from legions.commands.commands import w3
 
 
 @command
