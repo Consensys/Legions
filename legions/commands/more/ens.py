@@ -56,4 +56,3 @@ class ens:
                 cprint("Owner: {}".format(self.ns.owner(name)))
             else:
                 cprint("Is not registered")
-
