@@ -27,7 +27,7 @@ Other functionalities:
 Require `Python 3.6`.
 
 ```bash
-clone https://github.com/shayanb/Legions
+git clone https://github.com/shayanb/Legions
 cd Legions
 pip install .
 ```
