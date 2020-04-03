@@ -83,6 +83,7 @@ legions
 |     **ens**     |                   | **Do Ethereum Name Service queries (supported on the mainnet only)**           |
 |                 | toName            | Transform an address to the ENS name                                           |
 |                 | toAddress         | Transform an ENS name to the Ethereum public address                           |
+|                 | info              | Get details about an ENS name                                                  |
 |   **version**   |                   | **Print Versions** (If connected to a node it will print the host version too) |
 
 
