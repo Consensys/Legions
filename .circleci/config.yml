@@ -63,12 +63,15 @@ jobs:
           name: Verify Git tag vs. version
           command: python3 setup.py verify
       - run:
+          name: Build tools
+          command: |
+            sudo pip install --upgrade pip wheel setuptools twine
+      - run:
           name: Build
           command: python3 setup.py sdist
       - run:
           name: Deploy
           command: |
-            sudo pip install --upgrade pip wheel setuptools twine
             twine upload dist/*
 
 workflows:

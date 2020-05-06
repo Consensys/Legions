@@ -42,7 +42,9 @@ setup(
     author_email="shayan.eskandari@consensys.net",
     license="MIT",
     packages=find_packages(exclude=["contrib", "docs", "tests"]),
-    package_data={"legions": ["commands/**", "utils/**", "network/**", "commands/more/**"],},
+    package_data={
+        "legions": ["commands/**", "utils/**", "network/**", "commands/more/**"],
+    },
     install_requires=read_file("requirements.txt").split("\n"),
     entry_points="""
           [console_scripts]
