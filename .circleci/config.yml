@@ -65,6 +65,7 @@ jobs:
           name: Build tools
           command: |
             sudo pip install --upgrade pip wheel setuptools twine
+            echo "Done"
       - run:
           name: Build
           command: python3 setup.py sdist
@@ -72,6 +73,7 @@ jobs:
           name: Deploy
           command: |
             twine upload dist/*
+            echo "Done"
 
 workflows:
   version: 2
