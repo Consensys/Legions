@@ -55,9 +55,9 @@ jobs:
       - checkout:
           path: ~/app
       - run:
-        name: Ensuring that setup script is functional
-        command: python3 setup.py install
-        working_directory: ~/app          
+          name: Ensuring that setup script is functional
+          command: python3 setup.py install
+          working_directory: ~/app          
       - run:
           name: Verify Git tag vs. version
           command: python3 setup.py verify
