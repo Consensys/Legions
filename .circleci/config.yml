@@ -13,8 +13,7 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo chown -R circleci:circleci /usr/local/bin
-      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.8/site-packages
+      - run: sudo chown -R circleci:circleci /usr/local/{bin,lib}
 
       # Download and cache dependencies
       - restore_cache:
@@ -54,6 +53,10 @@ jobs:
     steps:
       - checkout:
           path: ~/app
+      - run: 
+          name: Fix permissions
+          command: sudo chown -R circleci:circleci /usr/local/{bin,lib}
+
       - run:
           name: Ensuring that setup script is functional
           command: python3 setup.py install
