@@ -10,7 +10,7 @@ from datetime import datetime
 
 @command
 class ens:
-    "Ethereum name system"
+    "Ethereum Name Service Tools"
 
     def __init__(self) -> None:
         self.ns = _ens.fromWeb3(w3)
@@ -67,7 +67,11 @@ class ens:
 
     @command("listNames")
     @argument("address", description="list all ENS names owned by an address")
-    def listNames(self, address: str) -> str:
+    @argument(
+        "labelHash",
+        description="Show full labelHash if name does not resolve",
+    )
+    def listNames(self, address: str, labelHash: bool = False) -> str:
         """
         List all ENS names owned by an address
         """
@@ -90,6 +94,7 @@ class ens:
                         orderBy: $orderBy, \
                         orderDirection: $orderDirection) \
                         {                   \
+                            registrationDate \
                             expiryDate      \
                             domain {        \
                             labelName       \
@@ -110,18 +115,18 @@ class ens:
 
         try:
             response = requests.post('https://api.thegraph.com/subgraphs/name/ensdomains/ens', json=data)
-
             if (response.status_code != 200):
                 cprint("Query failed with {} error message: {} ".format(response.status_code, response.content), "red")
                 return None
 
             names = []
-            tableHeaders = ["Name", "Hash", "Expiry Date", "Migrated?"]
+            tableHeaders = ["Name", "Hash", "Registration Date", "Expiry Date", "Migrated?"]
             for domainName in response.json().get("data", {}).get("account", {}).get("registrations", {}):
-                names.append([domainName.get("domain", []).get("name", ""), 
-                            domainName.get("domain", []).get("labelhash", ""), 
+                names.append([domainName.get("domain", {}).get("name", "") if labelHash else domainName.get("domain", []).get("labelName", ""),
+                            domainName.get("domain", {}).get("labelhash", ""), 
+                            datetime.fromtimestamp(int(domainName.get("registrationDate", ""))), 
                             datetime.fromtimestamp(int(domainName.get("expiryDate", ""))), 
-                            str(domainName.get("domain", []).get("isMigrated", ""))
+                            str(domainName.get("domain", {}).get("isMigrated", ""))
                             ])
             cprint(tabulate(names, headers=tableHeaders, tablefmt = "pretty", stralign= "center"))
 
@@ -133,7 +138,11 @@ class ens:
 
     @command("listSubdomains")
     @argument("name", description="list all ENS sub domains of a name")
-    def listSubdomains(self, name: str) -> str:
+    @argument(
+        "labelHash",
+        description="Show full labelHash if name does not resolve",
+    )
+    def listSubdomains(self, name: str, labelHash: bool = False) -> str:
         """
         List all ENS sub domains of a name
         """
@@ -180,7 +189,7 @@ class ens:
             names = []
             tableHeaders = ["Subdomain",  "Owner", "Label Hash", "Migrated?"]
             for subDomain in response.json().get("data", {}).get("domain", {}).get("subdomains", {}):
-                names.append([subDomain.get("name", None), 
+                names.append([subDomain.get("name", "") if labelHash else subDomain.get("labelName", ""),
                             subDomain.get("owner", {}).get("id", ""), 
                             subDomain.get("labelhash", ""), 
                             str(subDomain.get("isMigrated", ""))
