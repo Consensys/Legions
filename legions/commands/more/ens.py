@@ -3,6 +3,23 @@ from web3 import Web3
 from termcolor import cprint
 from nubia import command, argument
 from legions.commands.commands import w3
+import requests
+import json
+from tabulate import tabulate
+from datetime import datetime
+
+headers = {
+    'authority': 'api.thegraph.com',
+    'accept': '*/*',
+    'content-type': 'application/json',
+    'origin': 'https://app.ens.domains',
+    'sec-fetch-site': 'cross-site',
+    'dnt': '1',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'mode': 'cors',
+    'credentials': 'omit'
+}
 
 
 @command
@@ -45,14 +62,84 @@ class ens:
         """
 
         cprint("Information about '{}'".format(name))
-        cprint("Valid name: {}".format(self.ns.is_valid_name(name)))
+        # cprint("Valid name: {}".format(self.ns.is_valid_name(name))) #is_valid_name returns true for any string? 
 
         if self.ns.is_valid_name(name):
             cprint("Namehash: {}".format(self.ns.namehash(name).hex()))
-
+            if self.ns.owner(name) == "0x0000000000000000000000000000000000000000":
+                cprint("Not Registered")
+                return None
+            cprint("Owner: {}".format(self.ns.owner(name)))
+            # cprint("First Owner: {}".format(self.ns._first_owner((name))[0]))
             resolver = self.ns.resolver(name)
             if resolver is not None:
                 cprint("Resolver: {}".format(resolver.address))
-                cprint("Owner: {}".format(self.ns.owner(name)))
             else:
-                cprint("Is not registered")
+                cprint("No resolver is set")
+
+
+
+    @command("listNames")
+    @argument("address", description="list all ENS names owned by an address")
+    def list(self, address: str) -> str:
+        """
+        List all ENS names owned by an address
+        """
+
+        cprint("Domains for '{}'".format(address))
+
+        data = {"operationName" :"getRegistrations",
+        "variables":{
+            "id":"{}".format(address),
+            "orderBy":"expiryDate",
+            "orderDirection":"asc"
+            }, #TODO: clear the graph Query to only the variables needed. Copied from ens.manager atm
+        "query": "query getRegistrations($id: ID!, \
+        $first: Int, $skip: Int, $orderBy: Registration_orderBy, \
+            $orderDirection: OrderDirection) \
+                {  account(id: $id)        \
+                    {   registrations(     \
+                        first: $first,     \
+                        skip: $skip,       \
+                        orderBy: $orderBy, \
+                        orderDirection: $orderDirection) \
+                        {                   \
+                            expiryDate      \
+                            domain {        \
+                            labelName       \
+                            labelhash       \
+                            name            \
+                            isMigrated      \
+                            parent          \
+                            {               \
+                            name            \
+                            __typename      \
+                            }               \
+                        __typename          \
+                        }                   \
+                    __typename              \
+                    }                       \
+                __typename  }}"
+        }
+
+        try:
+            response = requests.post('https://api.thegraph.com/subgraphs/name/ensdomains/ens', json=data)
+
+            if (response.status_code != 200):
+                cprint("Query failed with {} error message: {} ".format(response.status_code, response.content), "red")
+                return None
+
+            names = []
+            tableHeaders = ["Name", "Hash", "Expiry Date", "Migrated?"]
+            for domainName in response.json().get("data", {}).get("account", {}).get("registrations", {}):
+                names.append([domainName.get("domain", []).get("name", ""), 
+                            domainName.get("domain", []).get("labelhash", ""), 
+                            datetime.fromtimestamp(int(domainName.get("expiryDate", ""))), 
+                            str(domainName.get("domain", []).get("isMigrated", ""))
+                            ])
+            cprint(tabulate(names, headers=tableHeaders, tablefmt = "pretty", stralign= "center"))
+
+        except Exception as e:
+            cprint("Failed to query: {}".format(response.content), "red")
+            return 0
+
