@@ -1,26 +1,49 @@
-[<img width="200" alt="get in touch with Consensys Diligence" src="https://user-images.githubusercontent.com/2865694/56826101-91dcf380-685b-11e9-937c-af49c2510aa0.png">](https://diligence.consensys.net)<br/>
+[<img width="200" alt="get in touch with ConsenSys Diligence" src="https://user-images.githubusercontent.com/2865694/56826101-91dcf380-685b-11e9-937c-af49c2510aa0.png">](https://diligence.consensys.net)<br/>
 <sup>
 [[  🌐  ](https://diligence.consensys.net)  [  📩  ](mailto:diligence@consensys.net)]
 </sup><br/><br/>
 
 
 # Legions
+### Ethereum Node Security Toolkit
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![CircleCI](https://circleci.com/gh/ConsenSys/Legions/tree/master.svg?style=shield)](https://circleci.com/gh/ConsenSys/Legions/tree/master)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 [![PyPI](https://img.shields.io/pypi/v/legions.svg)](https://pypi.org/project/legions/)
 
-Ethereum Node Security Toolkit
 
 Handy toolkit for (security) researchers poking around Ethereum nodes and contracts, now with a slick command-line interface, with auto complete commands and history.
 
-Other functionalities:
- - Conversions (toWei, fromWei, keccak, etc)
- - Query for balance, code, storage of smart contracts, ecrecover
- - etc
+Features:
+ - Node detection (`getnodeinfo`)
+   - Detect the type of the Node, Chain, and Network
+   - Peer Count, Listening, Synching, and Mining status
+   - Gas Price
+   - etc
+ - Web3 API enumeration (`investigate`)
+   - Accounts
+     - Read coinbase, and accounts of the address
+     - (`intrusive = True`) will try to create accounts on the node
+   - Admin
+     - Enumerates web3.admin endpoints
+   - Sign (WIP)
+     - Enumerates signing functionalities (web3.sign)
+ - ENS Queries ('ens)
+   - List Names owned by an address
+   - List Subdomains of an address
+   - Query individual names
+ - Query (`query`) at latest/specific block number
+   - Balance of an address
+   - Block details
+   - Bytecode of the smart contract
+   - Read storage of the smart contract (default `count=10` reads the first 10 slots)
+   - command, which you can pass any RPC method with args
+   - ECRecover of a signature
+ - Conversions (toWei, fromWei, keccak, toChecksumAddress, etc)
 
-**This package is extremely beta**
+
+**This package is in beta and a work in progress**
 
 ## Installation
 
@@ -89,9 +112,10 @@ legions
 
 
 
-## Acknowledgement
+## Acknowledgements
  - Interactive shell: [python-nubia](https://github.com/facebookincubator/python-nubia)
  - [Web3.py](https://github.com/ethereum/web3.py/)
+ - Node data provided by [chainid.network](https://chainid.network/))
 
 
 

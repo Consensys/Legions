@@ -107,3 +107,4 @@ venv.bak/
 .vscode/settings.json
 Legions/notes
 notes
+.DS_Store
