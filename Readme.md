@@ -1,4 +1,7 @@
-[<img width="200" alt="get in touch with ConsenSys Diligence" src="https://user-images.githubusercontent.com/2865694/56826101-91dcf380-685b-11e9-937c-af49c2510aa0.png">](https://diligence.consensys.net)<br/>
+<img width="200" align="right" src="/assets/logo.png"></img>
+<br>
+[<img width="200" alt="get in touch with ConsenSys Diligence" src="https://user-images.githubusercontent.com/2865694/56826101-91dcf380-685b-11e9-937c-af49c2510aa0.png">](https://diligence.consensys.net)
+<br/>
 <sup>
 [[  🌐  ](https://diligence.consensys.net)  [  📩  ](mailto:diligence@consensys.net)]
 </sup><br/><br/>
@@ -15,13 +18,13 @@
 
 Handy toolkit for (security) researchers poking around Ethereum nodes and contracts, now with a slick command-line interface, with auto complete commands and history.
 
-Features:
- - Node detection (`getnodeinfo`)
+### Features:
+ - **Node detection** (`getnodeinfo`)
    - Detect the type of the Node, Chain, and Network
    - Peer Count, Listening, Synching, and Mining status
    - Gas Price
    - etc
- - Web3 API enumeration (`investigate`)
+ - **Web3 API enumeration** (`investigate`)
    - Accounts
      - Read coinbase, and accounts of the address
      - (`intrusive = True`) will try to create accounts on the node
@@ -29,25 +32,31 @@ Features:
      - Enumerates web3.admin endpoints
    - Sign (WIP)
      - Enumerates signing functionalities (web3.sign)
- - ENS Queries ('ens)
+ - **ENS Queries** ('ens)
    - List Names owned by an address
    - List Subdomains of an address
    - Query individual names
- - Query (`query`) at latest/specific block number
+ - **Query** at latest/specific block number (`query`)
    - Balance of an address
    - Block details
    - Bytecode of the smart contract
    - Read storage of the smart contract (default `count=10` reads the first 10 slots)
    - command, which you can pass any RPC method with args
    - ECRecover of a signature
- - Conversions (toWei, fromWei, keccak, toChecksumAddress, etc)
+ - **Conversions** (toWei, fromWei, keccak, toChecksumAddress, etc)
 
 
-**This package is in beta and a work in progress**
+**This tool is in beta and a work in progress**
 
 ## Installation
 
 Require `Python 3.6`.
+
+```bash
+pip install legions
+```
+
+Or directly from source code:
 
 ```bash
 git clone https://github.com/shayanb/Legions
@@ -55,18 +64,12 @@ cd Legions
 pip install .
 ```
 
-or
-
-```bash
-pip install legions
-```
-
 
 ## Usage
 
 If installed locally:
 ```bash
-python legions/main.py
+python legions.py
 ```
 
 or if installed globally:
@@ -116,6 +119,7 @@ legions
  - Interactive shell: [python-nubia](https://github.com/facebookincubator/python-nubia)
  - [Web3.py](https://github.com/ethereum/web3.py/)
  - Node data provided by [chainid.network](https://chainid.network/))
+ - ENS data provided by ENS GraphQL dataset
 
 
 
