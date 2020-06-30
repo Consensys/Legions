@@ -84,6 +84,18 @@
       "infoURL": "https://metadium.com"
     },
     {
+      "name": "Fuse Mainnet",
+      "chainId": 122,
+      "shortName": "fuse",
+      "chain": "FUSE",
+      "network": "mainnet",
+      "networkId": 122,
+      "nativeCurrency": {"name":"Fuse","symbol":"FUSE","decimals":18},
+      "rpc": ["https://rpc.fuse.io"],
+      "faucets": [],
+      "infoURL": "https://fuse.io/"
+    },
+    {
       "name": "Ether-1",
       "chainId": 1313114,
       "shortName": "etho",
@@ -216,6 +228,18 @@
       "infoURL": "https://expanse.tech"
     },
     {
+      "name": "ELA-ETH-Sidechain Mainnet",
+      "chainId": 20,
+      "shortName": "ELAETHSC",
+      "chain": "ETH",
+      "network": "mainnet",
+      "networkId": 1,
+      "nativeCurrency": {"name":"Ether","symbol":"ETH","decimals":18},
+      "rpc": ["https://mainrpc.elaeth.io"],
+      "faucets": [],
+      "infoURL": "https://www.elastos.org/"
+    },
+    {
       "name": "Akaroma",
       "chainId": 200625,
       "shortName": "aka",
@@ -226,6 +250,30 @@
       "rpc": ["https://remote.akroma.io"],
       "faucets": [],
       "infoURL": "https://akroma.io"
+    },
+    {
+      "name": "ELA-ETH-Sidechain Testnet",
+      "chainId": 21,
+      "shortName": "ELAETHSC",
+      "chain": "ETH",
+      "network": "testnet",
+      "networkId": 2,
+      "nativeCurrency": {"name":"Ether","symbol":"ETH","decimals":18},
+      "rpc": ["https://rpc.elaeth.io"],
+      "faucets": ["https://faucet.elaeth.io/"],
+      "infoURL": "https://elaeth.io/"
+    },
+    {
+      "name": "Freight Trust Network",
+      "chainId": 211,
+      "shortName": "EDI",
+      "chain": "EDI",
+      "network": "freight & trade network",
+      "networkId": 0,
+      "nativeCurrency": {"name":"Freight Trust Native","symbol":"0xF","decimals":18},
+      "rpc": ["http://13.57.207.168:3435","https://app.freighttrust.net/ftn/${API_KEY}"],
+      "faucets": ["http://faucet.freight.sh"],
+      "infoURL": "https://freighttrust.com"
     },
     {
       "name": "Webchain",
@@ -262,6 +310,18 @@
       "rpc": ["https://rpc.tau1.artis.network"],
       "faucets": [],
       "infoURL": "https://artis.network"
+    },
+    {
+      "name": "Fantom Opera",
+      "chainId": 250,
+      "shortName": "ftm",
+      "chain": "FTM",
+      "network": "mainnet",
+      "networkId": 250,
+      "nativeCurrency": {"name":"Fantom","symbol":"FTM","decimals":18},
+      "rpc": ["https://rpc.fantom.network","https://fantomscan.io/rpc"],
+      "faucets": [],
+      "infoURL": "https://fantom.foundation"
     },
     {
       "name": "High Performance Blockchain",
@@ -348,6 +408,18 @@
       "infoURL": "https://pirl.io"
     },
     {
+      "name": "Valorbit",
+      "chainId": 38,
+      "shortName": "val",
+      "chain": "VAL",
+      "network": "mainnet",
+      "networkId": 38,
+      "nativeCurrency": {"name":"Valorbit","symbol":"VAL","decimals":18},
+      "rpc": ["https://rpc.valorbit.com/v2"],
+      "faucets": [],
+      "infoURL": "https://valorbit.com"
+    },
+    {
       "name": "Lisinski",
       "chainId": 385,
       "shortName": "lisinski",
@@ -358,6 +430,18 @@
       "rpc": ["https://rpc-bitfalls1.lisinski.online"],
       "faucets": ["https://pipa.lisinski.online"],
       "infoURL": "https://lisinski.online"
+    },
+    {
+      "name": "Energi Mainnet",
+      "chainId": 39797,
+      "shortName": "nrg",
+      "chain": "NRG",
+      "network": "mainnet",
+      "networkId": 39797,
+      "nativeCurrency": {"name":"Energi","symbol":"NRG","decimals":18},
+      "rpc": ["https://nodeapi.gen3.energi.network"],
+      "faucets": [],
+      "infoURL": "https://www.energi.world/"
     },
     {
       "name": "Ethereum Testnet Rinkeby",
@@ -384,6 +468,30 @@
       "infoURL": "https://kovan-testnet.github.io/website"
     },
     {
+      "name": "Athereum",
+      "chainId": 43110,
+      "shortName": "ath",
+      "chain": "ATH",
+      "network": "athereum",
+      "networkId": 43110,
+      "nativeCurrency": {"name":"Athereum Ether","symbol":"ATH","decimals":18},
+      "rpc": ["https://ava.network:21015/ext/evm/rpc"],
+      "faucets": ["http://athfaucet.ava.network//?address=${ADDRESS}"],
+      "infoURL": "https://athereum.ava.network"
+    },
+    {
+      "name": "Energi Testnet",
+      "chainId": 49797,
+      "shortName": "tnrg",
+      "chain": "NRG",
+      "network": "testnet",
+      "networkId": 49797,
+      "nativeCurrency": {"name":"Energi","symbol":"tNRG","decimals":18},
+      "rpc": ["https://nodeapi.test3.energi.network"],
+      "faucets": [],
+      "infoURL": "https://www.energi.world/"
+    },
+    {
       "name": "Ethereum Testnet Görli",
       "chainId": 5,
       "shortName": "gor",
@@ -405,7 +513,7 @@
       "nativeCurrency": {"name":"Kotti Ether","symbol":"KOT","decimals":18},
       "rpc": [],
       "faucets": [],
-      "infoURL": "https://kottiexplorer.ethernode.io"
+      "infoURL": "https://explorer.jade.builders/?network=kotti"
     },
     {
       "name": "GoChain",
@@ -444,7 +552,7 @@
       "infoURL": "https://aquachain.github.io"
     },
     {
-      "name": "Ethereum Classic Testnet",
+      "name": "Ethereum Classic Testnet Morden",
       "chainId": 62,
       "shortName": "tetc",
       "chain": "ETC",
@@ -454,6 +562,18 @@
       "rpc": [],
       "faucets": [],
       "infoURL": "https://ethereumclassic.org"
+    },
+    {
+      "name": "Ethereum Classic Testnet Mordor",
+      "chainId": 63,
+      "shortName": "metc",
+      "chain": "ETC",
+      "network": "testnet",
+      "networkId": 7,
+      "nativeCurrency": {"name":"Mordor Classic Testnet Ether","symbol":"METC","decimals":18},
+      "rpc": [],
+      "faucets": [],
+      "infoURL": "https://github.com/eth-classic/mordor/"
     },
     {
       "name": "Ellaism",
@@ -466,6 +586,18 @@
       "rpc": ["https://jsonrpc.ellaism.org"],
       "faucets": [],
       "infoURL": "https://ellaism.org"
+    },
+    {
+      "name": "ThaiChain",
+      "chainId": 7,
+      "shortName": "tch",
+      "chain": "TCH",
+      "network": "mainnet",
+      "networkId": 7,
+      "nativeCurrency": {"name":"ThaiChain Ether","symbol":"TCH","decimals":18},
+      "rpc": ["https://rpc.dome.cloud"],
+      "faucets": [],
+      "infoURL": "https://thaichain.io"
     },
     {
       "name": "Mix",
@@ -504,14 +636,26 @@
       "infoURL": "https://musicoin.tw"
     },
     {
+      "name": "Firenze test network",
+      "chainId": 78110,
+      "shortName": "firenze",
+      "chain": "ETH",
+      "network": "testnet",
+      "networkId": 78110,
+      "nativeCurrency": {"name":"Firenze Ether","symbol":"FIN","decimals":18},
+      "rpc": ["https://ethnode.primusmoney.com/firenze"],
+      "faucets": [],
+      "infoURL": "https://primusmoney.com"
+    },
+    {
       "name": "Ubiq Network Mainnet",
       "chainId": 8,
       "shortName": "ubq",
       "chain": "UBQ",
       "network": "mainnet",
-      "networkId": 1,
+      "networkId": 88,
       "nativeCurrency": {"name":"Ubiq Ether","symbol":"UBQ","decimals":18},
-      "rpc": ["https://pyrus2.ubiqscan.io"],
+      "rpc": ["https://rpc.octano.dev","https://pyrus2.ubiqscan.io"],
       "faucets": [],
       "infoURL": "https://ubiqsmart.com"
     },
