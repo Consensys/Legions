@@ -16,7 +16,7 @@
 [![PyPI](https://img.shields.io/pypi/v/legions.svg)](https://pypi.org/project/legions/)
 
 
-Handy toolkit for (security) researchers poking around Ethereum nodes and contracts, now with a slick command-line interface, with auto complete commands and history.
+Legions is a handy toolkit for (security) researchers poking around EVM (Ethereum Virtual Machine) nodes and smart contracts, now with a slick command-line interface, with auto complete commands and history.
 
 ### Features:
  - **Node detection** (`getnodeinfo`)
@@ -32,7 +32,7 @@ Handy toolkit for (security) researchers poking around Ethereum nodes and contra
      - Enumerates web3.admin endpoints
    - Sign (WIP)
      - Enumerates signing functionalities (web3.sign)
- - **ENS Queries** ('ens)
+ - **ENS Queries** (`ens`)
    - List Names owned by an address
    - List Subdomains of an address
    - Query individual names
@@ -124,12 +124,8 @@ legions
 
 
 ## TODO:
-  - [x] Able to connect to ws / http / https / IPC
+  - [ ] eth 2.0 API implementation
   - [ ] Fix `Verbose` Status bar (It does not change from `OFF`)
-  - [ ] Print Accounts in `getnodeinfo` in a pretty format (One per line)
-  - [x] A way to reinitiate w3 (web3) by setting it to new host (right now it works for sethost but getnodeinfo still uses the first initiated w3)
-  - [ ] add way more functionalities
-  - [x] `chains.json` depending on the execution path might not be found. fix it.
   - [ ] inline TODOs (tons)
 
 
