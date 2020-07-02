@@ -8,7 +8,7 @@
 
 
 # Legions
-### Ethereum Node Security Toolkit
+### EVM Node Security Toolkit
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![CircleCI](https://circleci.com/gh/ConsenSys/Legions/tree/master.svg?style=shield)](https://circleci.com/gh/ConsenSys/Legions/tree/master)
@@ -80,7 +80,13 @@ legions
 
 ### Functions
 
-![demo](https://github.com/shayanb/Legions/raw/master/assets/demo.gif "Demo")
+#### Main Functionality
+
+![demo](/assets/main.gif "Main Functionality")
+
+#### ENS (Ethereum Name Service)
+
+![demo](/assets/ens.gif "Ethereum Name Service")
 
 
 |     Command     |   [Subcommand]    |                                  Description                                   |
@@ -118,7 +124,7 @@ legions
 ## Acknowledgements
  - Interactive shell: [python-nubia](https://github.com/facebookincubator/python-nubia)
  - [Web3.py](https://github.com/ethereum/web3.py/)
- - Node data provided by [chainid.network](https://chainid.network/))
+ - Node data provided by [chainid.network](https://chainid.network/)
  - ENS data provided by ENS GraphQL dataset
 
 
@@ -127,5 +133,8 @@ legions
   - [ ] eth 2.0 API implementation
   - [ ] Fix `Verbose` Status bar (It does not change from `OFF`)
   - [ ] inline TODOs (tons)
+  - [ ] resolve mappings from storage (using ABI?)
+  - [ ] Get tokens Balance (etherscan or other explorer API)
+
 
 

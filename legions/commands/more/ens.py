@@ -79,7 +79,7 @@ class ens:
         data = {
             "operationName": "getRegistrations",
             "variables": {
-                "id": "{}".format(address),
+                "id": "{}".format(address.lower()),
                 "orderBy": "expiryDate",
                 "orderDirection": "asc",
             },  # TODO: clear the graph Query to only the variables needed. Copied from ens.manager atm
