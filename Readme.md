@@ -48,6 +48,18 @@ Legions is a handy toolkit for (security) researchers poking around EVM (Ethereu
 
 **This tool is in beta and a work in progress**
 
+### Demo
+
+#### Main Functionality
+
+![demo](/assets/main.gif "Main Functionality")
+
+#### ENS (Ethereum Name Service)
+
+![demo](/assets/ens.gif "Ethereum Name Service")
+
+
+
 ## Installation
 
 Require `Python 3.6`.
@@ -78,16 +90,7 @@ or if installed globally:
 legions
 ```
 
-### Functions
-
-#### Main Functionality
-
-![demo](/assets/main.gif "Main Functionality")
-
-#### ENS (Ethereum Name Service)
-
-![demo](/assets/ens.gif "Ethereum Name Service")
-
+## Functions Breakdown 
 
 |     Command     |   [Subcommand]    |                                  Description                                   |
 | :-------------: | :---------------- | :----------------------------------------------------------------------------- |
