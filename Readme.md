@@ -26,7 +26,7 @@ Legions is a handy toolkit for (security) researchers poking around EVM (Ethereu
    - etc
  - **Web3 API enumeration** (`investigate`)
    - Accounts
-     - Read coinbase, and accounts of the address
+     - Read coinbase, and exposed accounts of the node
      - (`intrusive = True`) will try to create accounts on the node
    - Admin
      - Enumerates web3.admin endpoints
