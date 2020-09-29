@@ -210,7 +210,7 @@ class Investigate:
         self, intrusive: bool = False
     ):  # TODO: make these default to False for public use
         """
-        Investigate accounts (e.g. functionalities under the admin_ namespace)
+        Investigate admin (e.g. functionalities under the admin_ namespace)
         """
         cprint("clientVersion: {}".format(w3.clientVersion), "white")
         # More interfaces here: https://web3py.readthedocs.io/en/stable/web3.geth.html
