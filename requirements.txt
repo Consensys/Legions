@@ -3,3 +3,4 @@ web3==5.7.0
 python-nubia==0.2b2
 requests
 tabulate
+teatime==0.2.2
