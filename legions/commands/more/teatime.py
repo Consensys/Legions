@@ -11,11 +11,9 @@ from urllib.parse import urlparse
 #       How to include them? UX could be overwhelming with to many infos.
 # TODO: Should there be some default added plugins?
 
-# Docs and testing
+# Docs
 #
 # TODO: Update README with new commands.
-# TODO: Write unit-tests to check that each plugin is in a SUPPORTED list
-#       and in the instantiater list.
 
 # Plugin variables
 #
@@ -100,6 +98,7 @@ class scan:
     skip_below = 0
     test_input = "default"
     test_output = "default"
+    test_enode = ""
     block_threshold = 10
 
     # pluginInstantiator is a dict mapping plugin names to a function
@@ -119,6 +118,7 @@ class scan:
         "eth1/PeerlistLeak": lambda: PeerlistLeak(),
         "eth1/MiningStatus": lambda arg=should_mine: MiningStatus(arg),
         "eth1/PeerCountStatus": lambda arg=minimum_peercount: PeerCountStatus(arg),
+        "eth1/PeerlistManipulation": lambda arg=test_enode: PeerlistManipulation(arg),
         # Geth
         "eth1/GethNodeInfo": lambda: GethNodeInfo(),
         # TODO: PR#12 in teatime adds `Geth` as prefix to class name.

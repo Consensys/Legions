@@ -90,7 +90,23 @@ or if installed globally:
 legions
 ```
 
-## Functions Breakdown 
+
+## Tests
+
+Install `pytest`:
+
+```bash
+pip install pytest
+```
+
+Run tests:
+
+```bash
+pytest
+```
+
+
+## Functions Breakdown
 
 |     Command     |   [Subcommand]    |                                  Description                                   |
 | :-------------: | :---------------- | :----------------------------------------------------------------------------- |
@@ -138,6 +154,3 @@ legions
   - [ ] inline TODOs (tons)
   - [ ] resolve mappings from storage (using ABI?)
   - [ ] Get tokens Balance (etherscan or other explorer API)
-
-
-
