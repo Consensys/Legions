@@ -199,13 +199,11 @@ class scan:
         # TODO: Print report in a nice way, maybe safe to file(?)
         cprint("Scanreport: {}".format(report.to_dict()))
 
-
     # Add commands
 
     @command("add")
     @argument(
-        "plugin", description="add plugin to RPC scanner",
-        choices=pluginInstantiator
+        "plugin", description="add plugin to RPC scanner", choices=pluginInstantiator
     )
     def add(self, plugin: str) -> None:
         """
@@ -214,15 +212,14 @@ class scan:
         if plugin in SUPPORTED_BY[self.node_type]:
             self.addedPlugins.add(plugin)
         else:
-            cprint("{} either not supported by current node or not existing",
-                   "yellow").format(plugin)
+            cprint(
+                "{} either not supported by current node or not existing", "yellow"
+            ).format(plugin)
 
     # If argument is type list we can not define `choices`, making it
     # unusable for interactive mode.
     @command("add-list")
-    @argument(
-        "plugins", description="add plugin(s) to RPC scanner"
-    )
+    @argument("plugins", description="add plugin(s) to RPC scanner")
     def add_list(self, plugins: typing.List[str]) -> None:
         """
         Add plugin(s) to RPC scanner
@@ -231,22 +228,21 @@ class scan:
             if plugin in SUPPORTED_BY[self.node_type]:
                 self.addedPlugins.add(plugin)
             else:
-                cprint("{} either not supported by current node or not existing",
-                       "yellow").format(plugin)
-
+                cprint(
+                    "{} either not supported by current node or not existing", "yellow"
+                ).format(plugin)
 
     @command("rm")
     @argument(
         "plugin",
         description="remove plugin from RPC scanner",
-        choices=pluginInstantiator
+        choices=pluginInstantiator,
     )
     def rm(self, plugin: str) -> None:
         """
         Remove plugin from RPC scanner
         """
         self.addedPlugins.discard(plugin)
-
 
     # List commands
 
