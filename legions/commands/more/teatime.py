@@ -4,7 +4,7 @@ from teatime.plugins.eth1 import *
 from termcolor import cprint
 from nubia import command, argument
 from legions.commands.commands import w3
-from typing import List
+import typing
 from urllib.parse import urlparse
 
 # TODO: Currently no information about severity levels and if intrusive.
@@ -27,7 +27,6 @@ from urllib.parse import urlparse
 # TODO: teatime logs itself, which looks weird in console. Fix!
 # TODO: Print scanreport in a nice way
 # TODO: Print info text when module invoked? What about help text?
-# TODO: Add a `list` command to list selected plugins.
 
 # Contains plugins supported by all clients.
 SUPPORTED_BY_ALL_CLIENTS = [
@@ -192,35 +191,105 @@ class scan:
         for plugin in self.addedPlugins:
             instantiatedPlugins.append(self.pluginInstantiator[plugin]())
 
-        # Run a new scanner
+        # Run a new scanner.
         report = Scanner(
             self.host, self.port, self.node_type, instantiatedPlugins, self.prefix
         ).run()
 
+        # TODO: Print report in a nice way, maybe safe to file(?)
         cprint("Scanreport: {}".format(report.to_dict()))
 
-    # TODO: Support plugin=[str] as well
+
+    # Add commands
+
     @command("add")
     @argument(
-        "plugin", description="add plugin to RPC scanner", choices=pluginInstantiator
+        "plugin", description="add plugin to RPC scanner",
+        choices=pluginInstantiator
     )
     def add(self, plugin: str) -> None:
         """
         Add plugin to RPC scanner
         """
-        if plugin in self.pluginInstantiator and plugin in SUPPORTED_BY[self.node_type]:
+        if plugin in SUPPORTED_BY[self.node_type]:
             self.addedPlugins.add(plugin)
         else:
-            cprint("plugin not supported by client or not existing")
+            cprint("{} either not supported by current node or not existing",
+                   "yellow").format(plugin)
+
+    # If argument is type list we can not define `choices`, making it
+    # unusable for interactive mode.
+    @command("add-list")
+    @argument(
+        "plugins", description="add plugin(s) to RPC scanner"
+    )
+    def add_list(self, plugins: typing.List[str]) -> None:
+        """
+        Add plugin(s) to RPC scanner
+        """
+        for plugin in plugins:
+            if plugin in SUPPORTED_BY[self.node_type]:
+                self.addedPlugins.add(plugin)
+            else:
+                cprint("{} either not supported by current node or not existing",
+                       "yellow").format(plugin)
+
 
     @command("rm")
     @argument(
         "plugin",
         description="remove plugin from RPC scanner",
-        choices=pluginInstantiator,
+        choices=pluginInstantiator
     )
     def rm(self, plugin: str) -> None:
         """
         Remove plugin from RPC scanner
         """
         self.addedPlugins.discard(plugin)
+
+
+    # List commands
+
+    @command("list-all")
+    def list_all(self) -> None:
+        """
+        List all plugins
+        """
+        geth = set(SUPPORTED_BY[NodeType.GETH])
+        parity = set(SUPPORTED_BY[NodeType.PARITY])
+        plugins = geth.union(parity)
+
+        cprint("Plugins:", "yellow")
+        for plugin in plugins:
+            cprint("+ " + plugin)
+
+    @command("list-selected")
+    def list_selected(self) -> None:
+        """
+        List selected plugins
+        """
+        if not self.addedPlugins:
+            cprint("No plugins selected", "yellow")
+            return
+
+        cprint("Plugins selected:", "yellow")
+        for plugin in self.addedPlugins:
+            cprint("+ " + plugin)
+
+    @command("list-geth")
+    def list_geth(self) -> None:
+        """
+        List plugins supported by Geth
+        """
+        cprint("Plugins supported by Geth:", "yellow")
+        for plugin in SUPPORTED_BY[NodeType.GETH]:
+            cprint("+ " + plugin)
+
+    @command("list-parity")
+    def list_parity(self) -> None:
+        """
+        List plugins supported by Parity
+        """
+        cprint("Plugins supported by Parity:", "yellow")
+        for plugin in SUPPORTED_BY[NodeType.PARITY]:
+            cprint("+ " + plugin)
