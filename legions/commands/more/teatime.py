@@ -58,7 +58,8 @@ SUPPORTED_BY = {
         "eth1/GethTxPoolStatus",
         "eth1/GethStartRPC",
         "eth1/GethStopRPC",
-    ] + SUPPORTED_BY_ALL_CLIENTS,
+    ]
+    + SUPPORTED_BY_ALL_CLIENTS,
     NodeType.PARITY: [
         "eth1/ParityGasCeiling",
         "eth1/ParityGasFloor",
@@ -72,8 +73,10 @@ SUPPORTED_BY = {
         "eth1/ParityTxPoolStatistics",
         "eth1/ParityTxCeiling",
         "eth1/ParityMinGasPrice",
-    ] + SUPPORTED_BY_ALL_CLIENTS
+    ]
+    + SUPPORTED_BY_ALL_CLIENTS,
 }
+
 
 @command
 class scan:
@@ -93,7 +96,7 @@ class scan:
     should_mine = True
     hash_rate = 0
     minimum_peercount = 0
-    infura_url = "default" # TODO: set from w3?
+    infura_url = "default"  # TODO: set from w3?
     word_list = ["default", "default"]
     skip_below = 0
     test_input = "default"
@@ -108,10 +111,16 @@ class scan:
         "eth1/TxPoolContent": lambda: TxPoolContent(),
         "eth1/HashrateStatus": lambda arg=hash_rate: HashrateStatus(arg),
         "eth1/NetworkListening": lambda: NetworkListening(),
-        "eth1/NodeSync": lambda arg1=infura_url, arg2=block_threshold: NodeSync(arg1, arg2),
-        "eth1/SHA3Consistency": lambda arg1=test_input, arg2=test_output: SHA3Consistency(arg1, arg2),
+        "eth1/NodeSync": lambda arg1=infura_url, arg2=block_threshold: NodeSync(
+            arg1, arg2
+        ),
+        "eth1/SHA3Consistency": lambda arg1=test_input, arg2=test_output: SHA3Consistency(
+            arg1, arg2
+        ),
         "eth1/OpenAccounts": lambda arg=infura_url: OpenAccounts(arg),
-        "eth1/AccountUnlock": lambda arg1=infura_url, arg2=word_list, arg3=skip_below: AccountUnlock(arg1, arg2, arg3),
+        "eth1/AccountUnlock": lambda arg1=infura_url, arg2=word_list, arg3=skip_below: AccountUnlock(
+            arg1, arg2, arg3
+        ),
         # TODO: Expects optional Geth and Parity url, defaulted by teatime.
         #       Should add args anyway?
         "eth1/NodeVersion": lambda: NodeVersion(),
@@ -152,7 +161,7 @@ class scan:
         # Set node_type.
         if "Geth" in w3.clientVersion:
             self.node_type = NodeType.GETH
-        elif "Parity" in w3.clientVersion: # TODO: This is untested!
+        elif "Parity" in w3.clientVersion:  # TODO: This is untested!
             self.node_type = NodeType.PARITY
         else:
             # TODO: Is this enough? Maybe make module inaccesible?
@@ -163,7 +172,7 @@ class scan:
         self.prefix = url.scheme + "://"
         self.host = url.netloc + url.path
         if url.port is None:
-            self.port = 8545 # Default port
+            self.port = 8545  # Default port
         else:
             self.port = url.port
 
@@ -185,20 +194,16 @@ class scan:
 
         # Run a new scanner
         report = Scanner(
-            self.host,
-            self.port,
-            self.node_type,
-            instantiatedPlugins,
-            self.prefix
+            self.host, self.port, self.node_type, instantiatedPlugins, self.prefix
         ).run()
 
         cprint("Scanreport: {}".format(report.to_dict()))
 
     # TODO: Support plugin=[str] as well
     @command("add")
-    @argument("plugin",
-              description="add plugin to RPC scanner",
-              choices=pluginInstantiator)
+    @argument(
+        "plugin", description="add plugin to RPC scanner", choices=pluginInstantiator
+    )
     def add(self, plugin: str) -> None:
         """
         Add plugin to RPC scanner
@@ -209,9 +214,11 @@ class scan:
             cprint("plugin not supported by client or not existing")
 
     @command("rm")
-    @argument("plugin",
-              description="remove plugin from RPC scanner",
-              choices=pluginInstantiator)
+    @argument(
+        "plugin",
+        description="remove plugin from RPC scanner",
+        choices=pluginInstantiator,
+    )
     def rm(self, plugin: str) -> None:
         """
         Remove plugin from RPC scanner
