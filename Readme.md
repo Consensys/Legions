@@ -137,14 +137,14 @@ pytest
 |                 | info              | Get details about an ENS name                                                  |
 | **version**     |                   | **Print Versions** (If connected to a node it will print the host version too) |
 | **scan**        |                   | **RPC scans for blockchain nodes powered by teatime**                          |
-| **scan**        | execute           | Execute the RPC scanner                                                        |
-| **scan**        | add               | Add plugin to RPC scanner                                                      |
-| **scan**        | add-list          | Add plugin(s) to RPC scanner                                                   |
-| **scan**        | rm                | Remove plugin from RPC scanner                                                 |
-| **scan**        | list-selected     | List selected plugins                                                          |
-| **scan**        | list-all          | List all plugins                                                               |
-| **scan**        | list-parity       | List plugins supported by Parity                                               |
-| **scan**        | list-geth         | List plugins supported by Geth                                                 |
+|                 | execute           | Execute the RPC scanner                                                        |
+|                 | add               | Add plugin to RPC scanner                                                      |
+|                 | add-list          | Add plugin(s) to RPC scanner                                                   |
+|                 | rm                | Remove plugin from RPC scanner                                                 |
+|                 | list-selected     | List selected plugins                                                          |
+|                 | list-all          | List all plugins                                                               |
+|                 | list-parity       | List plugins supported by Parity                                               |
+|                 | list-geth         | List plugins supported by Geth                                                 |
 
 
 ## Acknowledgements
