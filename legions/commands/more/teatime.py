@@ -59,6 +59,7 @@ SUPPORTED_BY = {
     + SUPPORTED_BY_ALL_CLIENTS,
 }
 
+
 @command
 class scan:
     "RPC scans for blockchain nodes powered by teatime"
@@ -92,7 +93,7 @@ class scan:
     author = "0x0"
 
     # Used when trying to change the target chain.
-    target_chain = "foundation" # Ethereum mainnet
+    target_chain = "foundation"  # Ethereum mainnet
 
     # Used when trying to change the extra data field.
     extra_data = "0x0"
@@ -111,7 +112,7 @@ class scan:
 
     # Used when trying to unlock accounts.
     word_list = [""]
-    skip_below = 0   # skip accounts below this balance
+    skip_below = 0  # skip accounts below this balance
 
     # Used when checking SHA3 consistency.
     test_input = ""
