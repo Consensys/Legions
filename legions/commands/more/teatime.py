@@ -1,32 +1,15 @@
+import json
+import typing
+from legions.commands.commands import w3, INFURA_URL
+from nubia import command, argument
 from teatime.scanner import Scanner
 from teatime.plugins.context import NodeType
 from teatime.plugins.eth1 import *
 from termcolor import cprint
-from nubia import command, argument
-from legions.commands.commands import w3
-import typing
 from urllib.parse import urlparse
 
 # TODO: Currently no information about severity levels and if intrusive.
-#       How to include them? UX could be overwhelming with to many infos.
 # TODO: Should there be some default added plugins?
-
-# Docs
-#
-# TODO: Update README with new commands.
-
-# Plugin variables
-#
-# TODO: Maybe add a config file defining plugin variables?
-#       A `set <var>` would be possible but propably only for a few vars,
-#       i.e. the ones which are actually reset from time to time.
-# TODO: Find reasonable default values for plugin variables.
-
-# Output
-#
-# TODO: teatime logs itself, which looks weird in console. Fix!
-# TODO: Print scanreport in a nice way
-# TODO: Print info text when module invoked? What about help text?
 
 # Contains plugins supported by all clients.
 SUPPORTED_BY_ALL_CLIENTS = [
@@ -76,31 +59,68 @@ SUPPORTED_BY = {
     + SUPPORTED_BY_ALL_CLIENTS,
 }
 
-
 @command
 class scan:
     "RPC scans for blockchain nodes powered by teatime"
 
-    # This variables are used as arguments for some teatime plugins.
-    # TODO: They should be instantiated with reasonable defaults.
-    password = "default"
-    gasceiling = "default"
-    gasfloor = "default"
+    # The following variables are used as arguments for some of teatime's
+    # plugins.
+    infura_url = INFURA_URL
+
+    # Used when importing/creating a new account on the node. The accounts are
+    # locked with the specified password.
+    password = "legions"
+
+    # Used when trying to set a new gas ceiling target for mined blocks.
+    # Parity defaults to 0x0, see
+    # https://openethereum.github.io/wiki/JSONRPC-parity_set-module#parity_setgasceiltarget
+    gasceiling = "0x0"
+
+    # Used when trying to set a new gas floor target for mined blocks.
+    # Parity defaults to 0x0, see
+    # https://openethereum.github.io/wiki/JSONRPC-parity_set-module#parity_setgasfloortarget
+    gasfloor = "0x0"
+
+    # Used when trying to set the minimum transaction gas price.
     gas_price = "default"
+
+    # Used when trying to set the maximum transaction gas.
     gas_limit = "default"
-    author = "default"
-    target_chain = "default"
-    extra_data = "default"
-    mode = "default"
+
+    # Used when trying to change the address of the author of the block
+    # (the beneficiary to whom the mining rewards were given).
+    author = "0x0"
+
+    # Used when trying to change the target chain.
+    target_chain = "foundation" # Ethereum mainnet
+
+    # Used when trying to change the extra data field.
+    extra_data = "0x0"
+
+    # Used when trying to change the node's sync mode.
+    mode = "active"
+
+    # Used when checking whether the node is mining.
     should_mine = True
-    hash_rate = 0
-    minimum_peercount = 0
-    infura_url = "default"  # TODO: set from w3?
-    word_list = ["default", "default"]
-    skip_below = 0
-    test_input = "default"
-    test_output = "default"
+
+    # Used when checking whether the node has a certain hash rate.
+    hash_rate = 712000
+
+    # Used when checking whether the node has a certain peer count.
+    minimum_peercount = 3
+
+    # Used when trying to unlock accounts.
+    word_list = [""]
+    skip_below = 0   # skip accounts below this balance
+
+    # Used when checking SHA3 consistency.
+    test_input = ""
+    test_output = "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+
+    # Used when trying to add a peer to a node's peer list.
     test_enode = ""
+
+    # Used when checking the node's sync state.
     block_threshold = 10
 
     # pluginInstantiator is a dict mapping plugin names to a function
@@ -120,8 +140,6 @@ class scan:
         "eth1/AccountUnlock": lambda arg1=infura_url, arg2=word_list, arg3=skip_below: AccountUnlock(
             arg1, arg2, arg3
         ),
-        # TODO: Expects optional Geth and Parity url, defaulted by teatime.
-        #       Should add args anyway?
         "eth1/NodeVersion": lambda: NodeVersion(),
         "eth1/PeerlistLeak": lambda: PeerlistLeak(),
         "eth1/MiningStatus": lambda arg=should_mine: MiningStatus(arg),
@@ -129,8 +147,7 @@ class scan:
         "eth1/PeerlistManipulation": lambda arg=test_enode: PeerlistManipulation(arg),
         # Geth
         "eth1/GethNodeInfo": lambda: GethNodeInfo(),
-        # TODO: PR#12 in teatime adds `Geth` as prefix to class name.
-        "eth1/GethAccountImport": lambda arg=password: AccountImport(arg),
+        "eth1/GethAccountImport": lambda arg=password: GethAccountImport(arg),
         "eth1/GethStartWebsocket": lambda: GethStartWebsocket(),
         "eth1/GethStopWebsocket": lambda: GethStopWebsocket(),
         "eth1/GethTxPoolInspection": lambda: GethTxPoolInspection(),
@@ -163,7 +180,6 @@ class scan:
         elif "Parity" in w3.clientVersion:  # TODO: This is untested!
             self.node_type = NodeType.PARITY
         else:
-            # TODO: Is this enough? Maybe make module inaccesible?
             cprint("Unsupported node type", "red")
 
         # Break w3.node_uri in prefix, host and port as expected by teatime.
@@ -196,8 +212,10 @@ class scan:
             self.host, self.port, self.node_type, instantiatedPlugins, self.prefix
         ).run()
 
-        # TODO: Print report in a nice way, maybe safe to file(?)
-        cprint("Scanreport: {}".format(report.to_dict()))
+        # Print report.
+        out = json.dumps(report.to_dict(), indent=2)
+        cprint("Scanreport:", "yellow")
+        cprint("{}".format(out))
 
     # Add commands
 
