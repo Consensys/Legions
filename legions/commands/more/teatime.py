@@ -172,7 +172,9 @@ class scan:
     }
 
     # Contains plugin names added with the `add` command.
-    addedPlugins = set()
+    addedPlugins = set(
+        "eth1/NodeVersion",
+    )
 
     def __init__(self) -> None:
         # Set node_type.
