@@ -9,7 +9,6 @@ from termcolor import cprint
 from urllib.parse import urlparse
 
 # TODO: Currently no information about severity levels and if intrusive.
-# TODO: Should there be some default added plugins?
 
 # Contains plugins supported by all clients.
 SUPPORTED_BY_ALL_CLIENTS = [
@@ -172,7 +171,7 @@ class scan:
     }
 
     # Contains plugin names added with the `add` command.
-    addedPlugins = set("eth1/NodeVersion",)
+    addedPlugins = set("eth1/NodeVersion")
 
     def __init__(self) -> None:
         # Set node_type.
