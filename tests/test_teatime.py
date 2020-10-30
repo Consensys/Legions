@@ -10,7 +10,9 @@ def test_consistency_of_plugin_lists():
     # Tests that each plugin supported by all clients is also supported by each
     # individual client.
     for client in [NodeType.GETH, NodeType.PARITY]:
-        assert all(plugin in SUPPORTED_BY[client] for plugin in SUPPORTED_BY_ALL_CLIENTS)
+        assert all(
+            plugin in SUPPORTED_BY[client] for plugin in SUPPORTED_BY_ALL_CLIENTS
+        )
 
     # Tests that the intersection of the plugins supported only by individual
     # clients is the set of plugins supported by all clients.
@@ -34,6 +36,7 @@ def test_consistency_of_plugin_instantiator():
 
     # Tests the SUPPORTED_BY_ALL_CLIENTS list.
     assert all(plugin in instantiator_plugins for plugin in SUPPORTED_BY_ALL_CLIENTS)
+
 
 def test_plugin_instantiator():
     """

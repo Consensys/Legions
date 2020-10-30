@@ -86,11 +86,11 @@ class scan:
 
     # Used when trying to set the minimum transaction gas price.
     # Default copied from https://openethereum.github.io/wiki/JSONRPC-parity_set-module#parity_setmingasprice
-    gas_price = 0x3e8
+    gas_price = 0x3E8
 
     # Used when trying to set the maximum transaction gas.
     # Default copied from https://openethereum.github.io/wiki/JSONRPC-parity_set-module#parity_setmaxtransactiongas
-    gas_limit = 0x186a0
+    gas_limit = 0x186A0
 
     # Used when trying to change the address of the author of the block
     # (the beneficiary to whom the mining rewards were given).
@@ -133,7 +133,9 @@ class scan:
     plugin_instantiator = {
         "eth1/AccountCreation": lambda arg=password: AccountCreation(test_password=arg),
         "eth1/TxPoolContent": lambda: TxPoolContent(),
-        "eth1/HashrateStatus": lambda arg=hash_rate: HashrateStatus(expected_hashrate=arg),
+        "eth1/HashrateStatus": lambda arg=hash_rate: HashrateStatus(
+            expected_hashrate=arg
+        ),
         "eth1/NetworkListening": lambda: NetworkListening(),
         "eth1/NodeSync": lambda arg1=infura_url, arg2=block_threshold: NodeSync(
             infura_url=arg1, block_threshold=arg2
@@ -148,8 +150,12 @@ class scan:
         "eth1/NodeVersion": lambda: NodeVersion(),
         "eth1/PeerlistLeak": lambda: PeerlistLeak(),
         "eth1/MiningStatus": lambda arg=should_mine: MiningStatus(should_mine=arg),
-        "eth1/PeerCountStatus": lambda arg=minimum_peercount: PeerCountStatus(minimum_peercount=arg),
-        "eth1/PeerlistManipulation": lambda arg=test_enode: PeerlistManipulation(test_enode=arg),
+        "eth1/PeerCountStatus": lambda arg=minimum_peercount: PeerCountStatus(
+            minimum_peercount=arg
+        ),
+        "eth1/PeerlistManipulation": lambda arg=test_enode: PeerlistManipulation(
+            test_enode=arg
+        ),
         # Geth
         "eth1/GethNodeInfo": lambda: GethNodeInfo(),
         "eth1/GethAccountImport": lambda arg1=keydata, arg2=password: GethAccountImport(
@@ -163,17 +169,27 @@ class scan:
         "eth1/GethStopRPC": lambda: GethStopRPC(),
         "eth1/GethDatadir": lambda: GethDatadir(),
         # Parity
-        "eth1/ParityGasCeiling": lambda arg=gas_target: ParityGasCeiling(gas_target=arg),
+        "eth1/ParityGasCeiling": lambda arg=gas_target: ParityGasCeiling(
+            gas_target=arg
+        ),
         "eth1/ParityDevLogs": lambda: ParityDevLogs(),
         "eth1/ParityGasFloor": lambda arg=gas_floor: ParityGasFloor(gas_floor=arg),
         "eth1/ParityUpgrade": lambda: ParityUpgrade(),
         "eth1/ParityTxPoolStatistics": lambda: ParityTxPoolStatistics(),
         "eth1/ParityTxCeiling": lambda arg=gas_limit: ParityTxCeiling(gas_limit=arg),
-        "eth1/ParityMinGasPrice": lambda arg=gas_price: ParityMinGasPrice(gas_price=arg),
+        "eth1/ParityMinGasPrice": lambda arg=gas_price: ParityMinGasPrice(
+            gas_price=arg
+        ),
         "eth1/ParitySyncMode": lambda arg=mode: ParitySyncMode(mode=arg),
-        "eth1/ParityChangeCoinbase": lambda arg=author: ParityChangeCoinbase(author=arg),
-        "eth1/ParityChangeTarget": lambda arg=target_chain: ParityChangeTarget(target_chain=arg),
-        "eth1/ParityChangeExtra": lambda arg=extra_data: ParityChangeExtra(extra_data=arg),
+        "eth1/ParityChangeCoinbase": lambda arg=author: ParityChangeCoinbase(
+            author=arg
+        ),
+        "eth1/ParityChangeTarget": lambda arg=target_chain: ParityChangeTarget(
+            target_chain=arg
+        ),
+        "eth1/ParityChangeExtra": lambda arg=extra_data: ParityChangeExtra(
+            extra_data=arg
+        ),
         "eth1/ParityDropPeers": lambda: ParityDropPeers(),
     }
 
@@ -204,7 +220,6 @@ class scan:
         else:
             self.port = url.port
 
-
     @command("execute")
     def execute(self) -> str:
         """
@@ -215,7 +230,9 @@ class scan:
             return
 
         # Create a list containing the instantiated plugins.
-        instantiated_plugins = [self.plugin_instantiator[p]() for p in self.added_plugins]
+        instantiated_plugins = [
+            self.plugin_instantiator[p]() for p in self.added_plugins
+        ]
 
         # Run a new scanner.
         report = Scanner(
@@ -240,8 +257,12 @@ class scan:
         if plugin in SUPPORTED_BY[self.node_type]:
             self.added_plugins.add(plugin)
         else:
-            cprint("{} either not supported by current node or not existing".format(plugin),
-                   "yellow")
+            cprint(
+                "{} either not supported by current node or not existing".format(
+                    plugin
+                ),
+                "yellow",
+            )
 
     # If argument is type list we can not define `choices`, making it
     # unusable for interactive mode.
@@ -255,8 +276,12 @@ class scan:
             if plugin in SUPPORTED_BY[self.node_type]:
                 self.added_plugins.add(plugin)
             else:
-                cprint("{} either not supported by current node or not existing".format(plugin),
-                       "yellow")
+                cprint(
+                    "{} either not supported by current node or not existing".format(
+                        plugin
+                    ),
+                    "yellow",
+                )
 
     @command("rm")
     @argument(
