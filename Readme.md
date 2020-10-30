@@ -91,21 +91,6 @@ legions
 ```
 
 
-## Tests
-
-Install `pytest`:
-
-```bash
-pip install pytest
-```
-
-Run tests:
-
-```bash
-pytest
-```
-
-
 ## Functions Breakdown
 
 | Command         | [Subcommand]      | Description                                                                    |

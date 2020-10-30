@@ -1,6 +1,6 @@
 import json
 import typing
-from legions.commands.commands import w3, INFURA_URL
+from legions.commands.commands import w3, INFURA_URL, PEER_SAMPLE
 from nubia import command, argument
 from teatime.scanner import Scanner
 from teatime.plugins.context import NodeType
@@ -71,21 +71,26 @@ class scan:
     # locked with the specified password.
     password = "legions"
 
+    # Used when importing an exisiting account on the node using a raw key.
+    keydata = ""
+
     # Used when trying to set a new gas ceiling target for mined blocks.
     # Parity defaults to 0x0, see
     # https://openethereum.github.io/wiki/JSONRPC-parity_set-module#parity_setgasceiltarget
-    gasceiling = "0x0"
+    gas_target = 0x0
 
     # Used when trying to set a new gas floor target for mined blocks.
     # Parity defaults to 0x0, see
     # https://openethereum.github.io/wiki/JSONRPC-parity_set-module#parity_setgasfloortarget
-    gasfloor = "0x0"
+    gas_floor = 0x0
 
     # Used when trying to set the minimum transaction gas price.
-    gas_price = "default"
+    # Default copied from https://openethereum.github.io/wiki/JSONRPC-parity_set-module#parity_setmingasprice
+    gas_price = 0x3e8
 
     # Used when trying to set the maximum transaction gas.
-    gas_limit = "default"
+    # Default copied from https://openethereum.github.io/wiki/JSONRPC-parity_set-module#parity_setmaxtransactiongas
+    gas_limit = 0x186a0
 
     # Used when trying to change the address of the author of the block
     # (the beneficiary to whom the mining rewards were given).
@@ -110,44 +115,46 @@ class scan:
     minimum_peercount = 3
 
     # Used when trying to unlock accounts.
-    word_list = [""]
+    wordlist = [""]
     skip_below = 0  # skip accounts below this balance
 
     # Used when checking SHA3 consistency.
     test_input = ""
-    test_output = "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+    test_output = "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
 
     # Used when trying to add a peer to a node's peer list.
-    test_enode = ""
+    test_enode = PEER_SAMPLE
 
     # Used when checking the node's sync state.
     block_threshold = 10
 
-    # pluginInstantiator is a dict mapping plugin names to a function
+    # plugin_instantiator is a dict mapping plugin names to a function
     # instantiating and returning them.
-    pluginInstantiator = {
-        "eth1/AccountCreation": lambda arg=password: AccountCreation(arg),
+    plugin_instantiator = {
+        "eth1/AccountCreation": lambda arg=password: AccountCreation(test_password=arg),
         "eth1/TxPoolContent": lambda: TxPoolContent(),
-        "eth1/HashrateStatus": lambda arg=hash_rate: HashrateStatus(arg),
+        "eth1/HashrateStatus": lambda arg=hash_rate: HashrateStatus(expected_hashrate=arg),
         "eth1/NetworkListening": lambda: NetworkListening(),
         "eth1/NodeSync": lambda arg1=infura_url, arg2=block_threshold: NodeSync(
-            arg1, arg2
+            infura_url=arg1, block_threshold=arg2
         ),
         "eth1/SHA3Consistency": lambda arg1=test_input, arg2=test_output: SHA3Consistency(
-            arg1, arg2
+            test_input=arg1, test_output=arg2
         ),
-        "eth1/OpenAccounts": lambda arg=infura_url: OpenAccounts(arg),
-        "eth1/AccountUnlock": lambda arg1=infura_url, arg2=word_list, arg3=skip_below: AccountUnlock(
-            arg1, arg2, arg3
+        "eth1/OpenAccounts": lambda arg=infura_url: OpenAccounts(infura_url=arg),
+        "eth1/AccountUnlock": lambda arg1=infura_url, arg2=wordlist, arg3=skip_below: AccountUnlock(
+            infura_url=arg1, wordlist=arg2, skip_below=arg3
         ),
         "eth1/NodeVersion": lambda: NodeVersion(),
         "eth1/PeerlistLeak": lambda: PeerlistLeak(),
-        "eth1/MiningStatus": lambda arg=should_mine: MiningStatus(arg),
-        "eth1/PeerCountStatus": lambda arg=minimum_peercount: PeerCountStatus(arg),
-        "eth1/PeerlistManipulation": lambda arg=test_enode: PeerlistManipulation(arg),
+        "eth1/MiningStatus": lambda arg=should_mine: MiningStatus(should_mine=arg),
+        "eth1/PeerCountStatus": lambda arg=minimum_peercount: PeerCountStatus(minimum_peercount=arg),
+        "eth1/PeerlistManipulation": lambda arg=test_enode: PeerlistManipulation(test_enode=arg),
         # Geth
         "eth1/GethNodeInfo": lambda: GethNodeInfo(),
-        "eth1/GethAccountImport": lambda arg=password: GethAccountImport(arg),
+        "eth1/GethAccountImport": lambda arg1=keydata, arg2=password: GethAccountImport(
+            keydata=arg1, password=arg2
+        ),
         "eth1/GethStartWebsocket": lambda: GethStartWebsocket(),
         "eth1/GethStopWebsocket": lambda: GethStopWebsocket(),
         "eth1/GethTxPoolInspection": lambda: GethTxPoolInspection(),
@@ -156,28 +163,28 @@ class scan:
         "eth1/GethStopRPC": lambda: GethStopRPC(),
         "eth1/GethDatadir": lambda: GethDatadir(),
         # Parity
-        "eth1/ParityGasCeiling": lambda arg=gasceiling: ParityGasCeiling(arg),
+        "eth1/ParityGasCeiling": lambda arg=gas_target: ParityGasCeiling(gas_target=arg),
         "eth1/ParityDevLogs": lambda: ParityDevLogs(),
-        "eth1/ParityGasFloor": lambda arg=gasfloor: ParityGasFloor(arg),
+        "eth1/ParityGasFloor": lambda arg=gas_floor: ParityGasFloor(gas_floor=arg),
         "eth1/ParityUpgrade": lambda: ParityUpgrade(),
         "eth1/ParityTxPoolStatistics": lambda: ParityTxPoolStatistics(),
-        "eth1/ParityTxCeiling": lambda arg=gas_limit: ParityTxCeiling(arg),
-        "eth1/ParityMinGasPrice": lambda arg=gas_price: ParityMinGasPrice(arg),
-        "eth1/ParitySyncMode": lambda arg=mode: ParitySyncMode(arg),
-        "eth1/ParityChangeCoinbase": lambda arg=author: ParityChangeCoinbase(arg),
-        "eth1/ParityChangeTarget": lambda arg=target_chain: ParityChangeTarget(arg),
-        "eth1/ParityChangeExtra": lambda arg=extra_data: ParityChangeExtra(arg),
+        "eth1/ParityTxCeiling": lambda arg=gas_limit: ParityTxCeiling(gas_limit=arg),
+        "eth1/ParityMinGasPrice": lambda arg=gas_price: ParityMinGasPrice(gas_price=arg),
+        "eth1/ParitySyncMode": lambda arg=mode: ParitySyncMode(mode=arg),
+        "eth1/ParityChangeCoinbase": lambda arg=author: ParityChangeCoinbase(author=arg),
+        "eth1/ParityChangeTarget": lambda arg=target_chain: ParityChangeTarget(target_chain=arg),
+        "eth1/ParityChangeExtra": lambda arg=extra_data: ParityChangeExtra(extra_data=arg),
         "eth1/ParityDropPeers": lambda: ParityDropPeers(),
     }
 
     # Contains plugin names added with the `add` command.
-    addedPlugins = set("eth1/NodeVersion")
+    added_plugins = set()
 
     def __init__(self) -> None:
         # Set node_type.
-        if "Geth" in w3.clientVersion:
+        if "geth" in w3.clientVersion.lower():
             self.node_type = NodeType.GETH
-        elif "Parity" in w3.clientVersion:  # TODO: This is untested!
+        elif "parity" in w3.clientVersion.lower():
             self.node_type = NodeType.PARITY
         else:
             cprint("Unsupported node type", "red")
@@ -185,31 +192,34 @@ class scan:
         # Break w3.node_uri in prefix, host and port as expected by teatime.
         url = urlparse(w3.node_uri)
         self.prefix = url.scheme + "://"
-        self.host = url.netloc + url.path
+
+        if ":" in url.netloc:
+            end = url.netloc.index(":")  # Exclude port information
+            self.host = url.netloc[:end] + url.path
+        else:
+            self.host = url.netloc + url.path
+
         if url.port is None:
             self.port = 8545  # Default port
         else:
             self.port = url.port
 
-        pass
 
     @command("execute")
     def execute(self) -> str:
         """
         Execute RPC scanner
         """
-        if not self.addedPlugins:
-            cprint("No plugins selected")
+        if not self.added_plugins:
+            cprint("No plugins selected", "red")
             return
 
         # Create a list containing the instantiated plugins.
-        instantiatedPlugins = []
-        for plugin in self.addedPlugins:
-            instantiatedPlugins.append(self.pluginInstantiator[plugin]())
+        instantiated_plugins = [self.plugin_instantiator[p]() for p in self.added_plugins]
 
         # Run a new scanner.
         report = Scanner(
-            self.host, self.port, self.node_type, instantiatedPlugins, self.prefix
+            self.host, self.port, self.node_type, instantiated_plugins, self.prefix
         ).run()
 
         # Print report.
@@ -221,18 +231,17 @@ class scan:
 
     @command("add")
     @argument(
-        "plugin", description="add plugin to RPC scanner", choices=pluginInstantiator
+        "plugin", description="add plugin to RPC scanner", choices=plugin_instantiator
     )
     def add(self, plugin: str) -> None:
         """
         Add plugin to RPC scanner
         """
         if plugin in SUPPORTED_BY[self.node_type]:
-            self.addedPlugins.add(plugin)
+            self.added_plugins.add(plugin)
         else:
-            cprint(
-                "{} either not supported by current node or not existing", "yellow"
-            ).format(plugin)
+            cprint("{} either not supported by current node or not existing".format(plugin),
+                   "yellow")
 
     # If argument is type list we can not define `choices`, making it
     # unusable for interactive mode.
@@ -244,23 +253,22 @@ class scan:
         """
         for plugin in plugins:
             if plugin in SUPPORTED_BY[self.node_type]:
-                self.addedPlugins.add(plugin)
+                self.added_plugins.add(plugin)
             else:
-                cprint(
-                    "{} either not supported by current node or not existing", "yellow"
-                ).format(plugin)
+                cprint("{} either not supported by current node or not existing".format(plugin),
+                       "yellow")
 
     @command("rm")
     @argument(
         "plugin",
         description="remove plugin from RPC scanner",
-        choices=pluginInstantiator,
+        choices=plugin_instantiator,
     )
     def rm(self, plugin: str) -> None:
         """
         Remove plugin from RPC scanner
         """
-        self.addedPlugins.discard(plugin)
+        self.added_plugins.discard(plugin)
 
     # List commands
 
@@ -282,12 +290,12 @@ class scan:
         """
         List selected plugins
         """
-        if not self.addedPlugins:
+        if not self.added_plugins:
             cprint("No plugins selected", "yellow")
             return
 
         cprint("Plugins selected:", "yellow")
-        for plugin in self.addedPlugins:
+        for plugin in self.added_plugins:
             cprint("+ " + plugin)
 
     @command("list-geth")
