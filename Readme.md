@@ -90,11 +90,12 @@ or if installed globally:
 legions
 ```
 
-## Functions Breakdown 
 
-|     Command     |   [Subcommand]    |                                  Description                                   |
+## Functions Breakdown
+
+| Command         | [Subcommand]      | Description                                                                    |
 | :-------------: | :---------------- | :----------------------------------------------------------------------------- |
-|   **sethost**   |                   | **Setup the Web3 connection (RPC, IPC, HTTP)** (default to infura mainnet)     |
+| **sethost**     |                   | **Setup the Web3 connection (RPC, IPC, HTTP)** (default to infura mainnet)     |
 | **getnodeinfo** |                   | **Information about the connected node** (run `setnode` before this)           |
 | **conversions** |                   | **Conversions possible to do with Web3**                                       |
 |                 | fromWei           | Converts the input to ether (to `currency` default to ether)                   |
@@ -104,7 +105,7 @@ legions
 |                 | toChecksumAddress | Converts the input to Checksum Address                                         |
 |                 | toHex             | Converts the input text to Hex                                                 |
 |                 | fromWei           | Converts the input to ether (or specified currency)                            |
-|    **query**    |                   | **Query Blockchain (Storage, balance, etc)**                                   |
+| **query**       |                   | **Query Blockchain (Storage, balance, etc)**                                   |
 |                 | balance           | Get Balance of an account                                                      |
 |                 | block             | Get block details by block number                                              |
 |                 | code              | Get code of the smart contract at address                                      |
@@ -115,13 +116,20 @@ legions
 |                 | accounts          | Investigate accounts (e.g. check if accounts are unlocked, etc)                |
 |                 | admin             | Investigate accounts (e.g. functionalities under the admin_ namespace)         |
 |                 | sign              | Investigate signature functionalities                                          |
-|     **ens**     |                   | **Do Ethereum Name Service queries (supported on the mainnet only)**           |
+| **ens**         |                   | **Do Ethereum Name Service queries (supported on the mainnet only)**           |
 |                 | toName            | Transform an address to the ENS name                                           |
 |                 | toAddress         | Transform an ENS name to the Ethereum public address                           |
 |                 | info              | Get details about an ENS name                                                  |
-|   **version**   |                   | **Print Versions** (If connected to a node it will print the host version too) |
-
-
+| **version**     |                   | **Print Versions** (If connected to a node it will print the host version too) |
+| **scan**        |                   | **RPC scans for blockchain nodes powered by teatime**                          |
+|                 | execute           | Execute the RPC scanner                                                        |
+|                 | add               | Add plugin to RPC scanner                                                      |
+|                 | add-list          | Add plugin(s) to RPC scanner                                                   |
+|                 | rm                | Remove plugin from RPC scanner                                                 |
+|                 | list-selected     | List selected plugins                                                          |
+|                 | list-all          | List all plugins                                                               |
+|                 | list-parity       | List plugins supported by Parity                                               |
+|                 | list-geth         | List plugins supported by Geth                                                 |
 
 
 ## Acknowledgements
@@ -138,6 +146,3 @@ legions
   - [ ] inline TODOs (tons)
   - [ ] resolve mappings from storage (using ABI?)
   - [ ] Get tokens Balance (etherscan or other explorer API)
-
-
-
