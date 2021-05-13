@@ -374,13 +374,19 @@ class Query:
     @command("storage")
     @argument("address", description="Address of the account", aliases=["a"])
     @argument("count", description="Number of storage slots to read", aliases=["i"])
-    @argument("startFrom", description="Storage slot index to start counting from", aliases=["f"])
+    @argument(
+        "startFrom",
+        description="Storage slot index to start counting from",
+        aliases=["f"],
+    )
     @argument(
         "block",
         description="(Optional) Block number for the query (default latest)",
         aliases=["b"],
     )
-    def get_storage(self, address: str, count: int = 10, startFrom: str = "0", block: int = None):
+    def get_storage(
+        self, address: str, count: int = 10, startFrom: str = "0", block: int = None
+    ):
         """
         Get the first "count" number of an address. count default = 10
         """
@@ -404,12 +410,16 @@ class Query:
 
             try:  # TODO: make this smarter, detect the variable and show proper represantation of it .
                 hex_text = Web3.toText(
-                    w3.eth.getStorageAt(address, startFromInt + i, block_identifier=block)
+                    w3.eth.getStorageAt(
+                        address, startFromInt + i, block_identifier=block
+                    )
                 )
             except:
                 try:
                     hex_text = Web3.toInt(
-                        w3.eth.getStorageAt(address, startFromInt + i, block_identifier=block)
+                        w3.eth.getStorageAt(
+                            address, startFromInt + i, block_identifier=block
+                        )
                     )
                 except:
                     hex_text = None
@@ -417,7 +427,11 @@ class Query:
             cprint(
                 "Slot {0:#032x}\n = {1} ({2})".format(
                     startFromInt + i,
-                    Web3.toHex(w3.eth.getStorageAt(address, startFromInt + i, block_identifier=block)),
+                    Web3.toHex(
+                        w3.eth.getStorageAt(
+                            address, startFromInt + i, block_identifier=block
+                        )
+                    ),
                     hex_text,
                 ),
                 "green",
